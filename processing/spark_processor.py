@@ -1,0 +1,82 @@
+from pyspark.sql import SparkSession
+from pyspark.sql import functions as F
+from pyspark.sql.window import Window
+import psycopg2
+import pandas as pd
+
+# Start Spark
+spark = SparkSession.builder \
+    .appName("AnomX-Processing") \
+    .config("spark.driver.memory", "2g") \
+    .getOrCreate()
+
+spark.sparkContext.setLogLevel("ERROR")
+
+# Column names
+COLUMNS = [
+    'engine_id', 'time_in_cycles',
+    'op_setting_1', 'op_setting_2', 'op_setting_3',
+    's1','s2','s3','s4','s5','s6','s7','s8','s9','s10',
+    's11','s12','s13','s14','s15','s16','s17','s18','s19','s20','s21'
+]
+
+# Load raw data
+df = pd.read_csv(
+    "/media/data/omar/programming course/DEPI/DEPI project/anomx/data/raw/train_FD001.txt",
+    sep=r'\s+', header=None, names=COLUMNS
+)
+df = spark.createDataFrame(df)
+# Drop useless columns
+USELESS = ['s1','s5','s6','s10','s16','s18','s19']
+df = df.drop(*USELESS)
+
+# Add RUL
+window_max = Window.partitionBy("engine_id")
+df = df.withColumn("max_cycle", F.max("time_in_cycles").over(window_max))
+df = df.withColumn("rul", F.col("max_cycle") - F.col("time_in_cycles"))
+df = df.drop("max_cycle")
+
+# Rolling features on s2
+window_roll = Window.partitionBy("engine_id").orderBy("time_in_cycles").rowsBetween(-4, 0)
+df = df.withColumn("rolling_avg_s2", F.avg("s2").over(window_roll))
+df = df.withColumn("rolling_std_s2", F.stddev("s2").over(window_roll))
+
+# Fill nulls
+df = df.fillna(0)
+
+print(f"Total rows: {df.count()}")
+df.show(5)
+
+# Save to PostgreSQL
+conn = psycopg2.connect(
+    host="localhost", port=5432,
+    database="anomx_db", user="anomx", password="anomx123"
+)
+cursor = conn.cursor()
+
+pandas_df = df.toPandas()
+
+for _, row in pandas_df.iterrows():
+    cursor.execute("""
+        INSERT INTO processed_sensor_data (
+            engine_id, time_in_cycles,
+            op_setting_1, op_setting_2, op_setting_3,
+            s2, s3, s4, s7, s8, s9,
+            s11, s12, s13, s14, s15, s17, s20, s21,
+            rolling_avg_s2, rolling_std_s2, rul
+        ) VALUES (
+            %(engine_id)s, %(time_in_cycles)s,
+            %(op_setting_1)s, %(op_setting_2)s, %(op_setting_3)s,
+            %(s2)s, %(s3)s, %(s4)s, %(s7)s, %(s8)s, %(s9)s,
+            %(s11)s, %(s12)s, %(s13)s, %(s14)s, %(s15)s, %(s17)s, %(s20)s, %(s21)s,
+            %(rolling_avg_s2)s, %(rolling_std_s2)s, %(rul)s
+        )
+    """, row.to_dict())
+
+conn.commit()
+cursor.close()
+conn.close()
+
+print("Done! Data saved to PostgreSQL.")
+spark.stop()
+

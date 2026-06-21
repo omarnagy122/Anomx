@@ -1,82 +1,75 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+import pandas as pd
+import psycopg2
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql.window import Window
-import psycopg2
-import pandas as pd
-
-# Start Spark
-spark = SparkSession.builder \
-    .appName("AnomX-Processing") \
-    .config("spark.driver.memory", "2g") \
-    .getOrCreate()
-
-spark.sparkContext.setLogLevel("ERROR")
-
-# Column names
-COLUMNS = [
-    'engine_id', 'time_in_cycles',
-    'op_setting_1', 'op_setting_2', 'op_setting_3',
-    's1','s2','s3','s4','s5','s6','s7','s8','s9','s10',
-    's11','s12','s13','s14','s15','s16','s17','s18','s19','s20','s21'
-]
-
-# Load raw data
-df = pd.read_csv(
-    "/media/data/omar/programming course/DEPI/DEPI project/anomx/data/raw/train_FD001.txt",
-    sep=r'\s+', header=None, names=COLUMNS
+from config import (
+    DATA_SOURCES, SENSOR_COLUMNS,
+    POSTGRES_HOST, POSTGRES_PORT,
+    POSTGRES_DB, POSTGRES_USER, POSTGRES_PASS
 )
-df = spark.createDataFrame(df)
-# Drop useless columns
-USELESS = ['s1','s5','s6','s10','s16','s18','s19']
-df = df.drop(*USELESS)
 
-# Add RUL
-window_max = Window.partitionBy("engine_id")
-df = df.withColumn("max_cycle", F.max("time_in_cycles").over(window_max))
-df = df.withColumn("rul", F.col("max_cycle") - F.col("time_in_cycles"))
-df = df.drop("max_cycle")
+def process_dataset(dataset="FD001"):
+    # ─── Spark Session ───────────────────────────────────
+    spark = SparkSession.builder \
+        .appName(f"AnomX-Processing-{dataset}") \
+        .config("spark.driver.memory", "2g") \
+        .getOrCreate()
+    spark.sparkContext.setLogLevel("ERROR")
 
-# Rolling features on s2
-window_roll = Window.partitionBy("engine_id").orderBy("time_in_cycles").rowsBetween(-4, 0)
-df = df.withColumn("rolling_avg_s2", F.avg("s2").over(window_roll))
-df = df.withColumn("rolling_std_s2", F.stddev("s2").over(window_roll))
+    # ─── Load Data ───────────────────────────────────────
+    path = DATA_SOURCES["simulation"][dataset]
+    pandas_df = pd.read_csv(path, sep=r'\s+', header=None, names=SENSOR_COLUMNS)
+    df = spark.createDataFrame(pandas_df)
 
-# Fill nulls
-df = df.fillna(0)
+    # ─── Add source column ───────────────────────────────
+    df = df.withColumn("source_file", F.lit(dataset))
 
-print(f"Total rows: {df.count()}")
-df.show(5)
+    # ─── Add RUL ─────────────────────────────────────────
+    window_max = Window.partitionBy("engine_id")
+    df = df.withColumn("max_cycle", F.max("time_in_cycles").over(window_max))
+    df = df.withColumn("rul", F.col("max_cycle") - F.col("time_in_cycles"))
+    df = df.drop("max_cycle")
 
-# Save to PostgreSQL
-conn = psycopg2.connect(
-    host="localhost", port=5432,
-    database="anomx_db", user="anomx", password="anomx123"
-)
-cursor = conn.cursor()
+    # ─── Rolling Features ────────────────────────────────
+    window_roll = Window.partitionBy("engine_id").orderBy("time_in_cycles").rowsBetween(-4, 0)
+    df = df.withColumn("rolling_avg_s2", F.avg("s2").over(window_roll))
+    df = df.withColumn("rolling_std_s2", F.stddev("s2").over(window_roll))
+    df = df.fillna(0)
 
-pandas_df = df.toPandas()
+    print(f"[{dataset}] Total rows: {df.count()}")
+    df.show(5)
 
-for _, row in pandas_df.iterrows():
-    cursor.execute("""
-        INSERT INTO processed_sensor_data (
-            engine_id, time_in_cycles,
-            op_setting_1, op_setting_2, op_setting_3,
-            s2, s3, s4, s7, s8, s9,
-            s11, s12, s13, s14, s15, s17, s20, s21,
-            rolling_avg_s2, rolling_std_s2, rul
-        ) VALUES (
-            %(engine_id)s, %(time_in_cycles)s,
-            %(op_setting_1)s, %(op_setting_2)s, %(op_setting_3)s,
-            %(s2)s, %(s3)s, %(s4)s, %(s7)s, %(s8)s, %(s9)s,
-            %(s11)s, %(s12)s, %(s13)s, %(s14)s, %(s15)s, %(s17)s, %(s20)s, %(s21)s,
-            %(rolling_avg_s2)s, %(rolling_std_s2)s, %(rul)s
-        )
-    """, row.to_dict())
+    # ─── Save to PostgreSQL ──────────────────────────────
+    conn = psycopg2.connect(
+        host=POSTGRES_HOST, port=POSTGRES_PORT,
+        database=POSTGRES_DB, user=POSTGRES_USER, password=POSTGRES_PASS
+    )
+    cursor = conn.cursor()
 
-conn.commit()
-cursor.close()
-conn.close()
+    pandas_out = df.toPandas()
+    records = [tuple(row) for _, row in pandas_out.iterrows()]
 
-print("Done! Data saved to PostgreSQL.")
-spark.stop()
+    cols = pandas_out.columns.tolist()
+    placeholders = ','.join(['%s'] * len(cols))
+    col_names = ','.join(cols)
 
+    cursor.executemany(
+        f"INSERT INTO processed_sensor_data ({col_names}) VALUES ({placeholders})",
+        records
+    )
+
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+    print(f"[{dataset}] Saved to PostgreSQL successfully.")
+    spark.stop()
+
+if __name__ == "__main__":
+    dataset = sys.argv[1] if len(sys.argv) > 1 else "FD001"
+    process_dataset(dataset)

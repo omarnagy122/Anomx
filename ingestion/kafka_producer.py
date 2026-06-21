@@ -1,36 +1,47 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 import pandas as pd
 from kafka import KafkaProducer
 import json
 import time
-
-# Column names for C-MAPSS dataset
-COLUMNS = [
-    'engine_id', 'time_in_cycles',
-    'op_setting_1', 'op_setting_2', 'op_setting_3',
-    's1','s2','s3','s4','s5','s6','s7','s8','s9','s10',
-    's11','s12','s13','s14','s15','s16','s17','s18','s19','s20','s21'
-]
-
-# Load data
-df = pd.read_csv(
-    "/media/data/omar/programming course/DEPI/DEPI project/anomx/data/raw/train_FD001.txt",
-    sep=r'\s+', header=None, names=COLUMNS
+from config import (
+    MODE, DATA_SOURCES,
+    KAFKA_BOOTSTRAP_SERVERS, KAFKA_TOPIC,
+    SENSOR_COLUMNS
 )
 
-# Kafka Producer
-producer = KafkaProducer(
-    bootstrap_servers='localhost:9092',
-    value_serializer=lambda x: json.dumps(x).encode('utf-8')
-)
+def stream_simulation(dataset="FD001"):
+    path = DATA_SOURCES["simulation"][dataset]
+    df = pd.read_csv(path, sep=r'\s+', header=None, names=SENSOR_COLUMNS)
 
-print(f"Starting to stream {len(df)} rows...")
+    producer = KafkaProducer(
+        bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
+        value_serializer=lambda x: json.dumps(x).encode('utf-8')
+    )
 
-for _, row in df.iterrows():
-    message = row.to_dict()
-    producer.send('sensor-data', value=message)
-    print(f"Sent → Engine {int(message['engine_id'])} | Cycle {int(message['time_in_cycles'])}")
-    time.sleep(0.1)  # simulate real-time stream
+    print(f"[simulation] Streaming {dataset} — {len(df)} rows...")
 
-producer.flush()
-print("Done!")
+    for _, row in df.iterrows():
+        message = row.to_dict()
+        message['source'] = dataset
+        producer.send(KAFKA_TOPIC, value=message)
+        print(f"Sent → Engine {int(message['engine_id'])} | Cycle {int(message['time_in_cycles'])}")
+        time.sleep(0.1)
 
+    producer.flush()
+    print(f"[simulation] Done — {dataset} streamed successfully.")
+
+def stream_live():
+    # TODO: implement MQTT connection when real sensors are available
+    print("[live] MQTT streaming not yet implemented.")
+    print("[live] Set MQTT_HOST, MQTT_PORT, MQTT_TOPIC env variables when ready.")
+
+if __name__ == "__main__":
+    dataset = sys.argv[1] if len(sys.argv) > 1 else "FD001"
+
+    if MODE == "simulation":
+        stream_simulation(dataset)
+    elif MODE == "live":
+        stream_live()

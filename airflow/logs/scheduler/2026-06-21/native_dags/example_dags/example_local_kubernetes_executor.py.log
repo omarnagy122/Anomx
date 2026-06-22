@@ -1,0 +1,517 @@
+[2026-06-21T21:39:16.483+0300] {processor.py:161} INFO - Started process (PID=15120) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:39:16.484+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:39:16.487+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:39:16.486+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:39:16.494+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:39:16.492+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:39:16.494+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:39:16.494+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:39:16.495+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:39:16.505+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.037 seconds
+[2026-06-21T21:40:21.644+0300] {processor.py:161} INFO - Started process (PID=15224) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:40:21.645+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:40:21.647+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:40:21.647+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:40:21.653+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:40:21.651+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:40:21.653+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:40:21.653+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:40:21.653+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:40:21.665+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.029 seconds
+[2026-06-21T21:41:26.070+0300] {processor.py:161} INFO - Started process (PID=15346) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:41:26.071+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:41:26.073+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:41:26.072+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:41:26.078+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:41:26.077+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:41:26.078+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:41:26.078+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:41:26.079+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:41:26.089+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.025 seconds
+[2026-06-21T21:42:31.432+0300] {processor.py:161} INFO - Started process (PID=15471) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:42:31.434+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:42:31.437+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:42:31.436+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:42:31.444+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:42:31.443+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:42:31.445+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:42:31.444+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:42:31.445+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:42:31.457+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.041 seconds
+[2026-06-21T21:43:31.582+0300] {processor.py:161} INFO - Started process (PID=15673) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:43:31.583+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:43:31.585+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:43:31.585+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:43:31.594+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:43:31.592+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:43:31.595+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:43:31.595+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:43:31.596+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:43:31.609+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.034 seconds
+[2026-06-21T21:44:30.964+0300] {processor.py:161} INFO - Started process (PID=15793) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:44:30.965+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:44:30.967+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:44:30.966+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:44:30.972+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:44:30.971+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:44:30.973+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:44:30.973+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:44:30.974+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:44:30.984+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.028 seconds
+[2026-06-21T21:47:05.483+0300] {processor.py:161} INFO - Started process (PID=16098) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:47:05.484+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:47:05.486+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:47:05.486+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:47:05.492+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:47:05.491+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:47:05.492+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:47:05.492+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:47:05.493+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:47:05.505+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.028 seconds
+[2026-06-21T21:48:06.459+0300] {processor.py:161} INFO - Started process (PID=16192) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:48:06.461+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:48:06.463+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:48:06.462+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:48:06.470+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:48:06.469+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:48:06.471+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:48:06.470+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:48:06.471+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:48:06.483+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.035 seconds
+[2026-06-21T21:49:03.644+0300] {processor.py:161} INFO - Started process (PID=16282) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:49:03.646+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:49:03.650+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:49:03.649+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:49:03.658+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:49:03.657+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:49:03.659+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:49:03.659+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:49:03.660+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:49:03.673+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.047 seconds
+[2026-06-21T21:51:11.912+0300] {processor.py:161} INFO - Started process (PID=16506) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:51:11.913+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:51:11.915+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:51:11.915+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:51:11.921+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:51:11.920+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:51:11.922+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:51:11.921+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:51:11.922+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:51:11.934+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.029 seconds
+[2026-06-21T21:52:27.448+0300] {processor.py:161} INFO - Started process (PID=16657) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:52:27.451+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:52:27.457+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:52:27.455+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:52:27.468+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:52:27.466+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:52:27.469+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:52:27.468+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:52:27.469+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:52:27.482+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.054 seconds
+[2026-06-21T21:53:24.758+0300] {processor.py:161} INFO - Started process (PID=16739) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:53:24.761+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:53:24.765+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:53:24.764+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:53:24.773+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:53:24.772+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:53:24.774+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:53:24.774+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:53:24.775+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:53:24.786+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.046 seconds
+[2026-06-21T21:54:22.676+0300] {processor.py:161} INFO - Started process (PID=16842) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:54:22.677+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:54:22.681+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:54:22.680+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:54:22.695+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:54:22.692+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:54:22.697+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:54:22.696+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:54:22.698+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:54:22.721+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.058 seconds
+[2026-06-21T21:55:19.344+0300] {processor.py:161} INFO - Started process (PID=16936) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:55:19.346+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:55:19.350+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:55:19.349+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:55:19.358+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:55:19.357+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:55:19.359+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:55:19.359+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:55:19.360+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:55:19.372+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.045 seconds
+[2026-06-21T21:56:12.735+0300] {processor.py:161} INFO - Started process (PID=17026) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:56:12.737+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:56:12.740+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:56:12.739+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:56:12.749+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:56:12.747+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:56:12.750+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:56:12.750+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:56:12.751+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:56:12.769+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.044 seconds
+[2026-06-21T21:57:03.614+0300] {processor.py:161} INFO - Started process (PID=17102) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:57:03.618+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:57:03.623+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:57:03.621+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:57:03.634+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:57:03.632+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:57:03.635+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:57:03.635+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:57:03.636+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:57:03.656+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.059 seconds
+[2026-06-21T21:57:58.340+0300] {processor.py:161} INFO - Started process (PID=17201) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:57:58.342+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:57:58.345+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:57:58.344+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:57:58.352+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:57:58.351+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:57:58.353+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:57:58.353+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:57:58.353+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:57:58.365+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.042 seconds
+[2026-06-21T21:58:54.412+0300] {processor.py:161} INFO - Started process (PID=17291) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:58:54.414+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:58:54.417+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:58:54.416+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:58:54.424+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:58:54.423+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:58:54.425+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:58:54.425+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:58:54.426+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:58:54.437+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.043 seconds
+[2026-06-21T21:59:51.118+0300] {processor.py:161} INFO - Started process (PID=17382) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:59:51.119+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T21:59:51.123+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:59:51.122+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:59:51.130+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:59:51.129+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T21:59:51.131+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:59:51.130+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T21:59:51.131+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T21:59:51.142+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.042 seconds
+[2026-06-21T22:00:48.873+0300] {processor.py:161} INFO - Started process (PID=17479) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:00:48.874+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:00:48.877+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:00:48.876+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:00:48.884+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:00:48.883+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:00:48.885+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:00:48.884+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:00:48.885+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:00:48.897+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.039 seconds
+[2026-06-21T22:01:46.937+0300] {processor.py:161} INFO - Started process (PID=17571) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:01:46.938+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:01:46.941+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:01:46.940+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:01:46.948+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:01:46.947+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:01:46.949+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:01:46.949+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:01:46.950+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:01:46.963+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.037 seconds
+[2026-06-21T22:02:44.946+0300] {processor.py:161} INFO - Started process (PID=17709) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:02:44.949+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:02:44.955+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:02:44.954+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:02:44.965+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:02:44.963+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:02:44.966+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:02:44.965+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:02:44.966+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:02:44.979+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.052 seconds
+[2026-06-21T22:03:40.492+0300] {processor.py:161} INFO - Started process (PID=17809) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:03:40.494+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:03:40.499+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:03:40.497+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:03:40.512+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:03:40.509+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:03:40.513+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:03:40.512+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:03:40.514+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:03:40.527+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.053 seconds
+[2026-06-21T22:04:33.925+0300] {processor.py:161} INFO - Started process (PID=17898) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:04:33.925+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:04:33.927+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:04:33.927+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:04:33.933+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:04:33.931+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:04:33.934+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:04:33.933+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:04:33.934+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:04:33.944+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.025 seconds
+[2026-06-21T22:05:29.907+0300] {processor.py:161} INFO - Started process (PID=17991) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:05:29.907+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:05:29.909+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:05:29.908+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:05:29.914+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:05:29.913+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:05:29.915+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:05:29.915+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:05:29.915+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:05:29.926+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.025 seconds
+[2026-06-21T22:06:26.600+0300] {processor.py:161} INFO - Started process (PID=18083) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:06:26.602+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:06:26.606+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:06:26.605+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:06:26.616+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:06:26.614+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:06:26.617+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:06:26.617+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:06:26.618+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:06:26.636+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.054 seconds
+[2026-06-21T22:07:25.019+0300] {processor.py:161} INFO - Started process (PID=18165) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:07:25.021+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:07:25.024+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:07:25.023+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:07:25.031+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:07:25.029+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:07:25.032+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:07:25.031+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:07:25.032+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:07:25.043+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.038 seconds
+[2026-06-21T22:08:23.210+0300] {processor.py:161} INFO - Started process (PID=18257) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:08:23.211+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:08:23.214+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:08:23.213+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:08:23.221+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:08:23.220+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:08:23.222+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:08:23.221+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:08:23.222+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:08:23.233+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.032 seconds
+[2026-06-21T22:09:19.755+0300] {processor.py:161} INFO - Started process (PID=18430) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:09:19.756+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:09:19.758+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:09:19.757+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:09:19.769+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:09:19.767+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:09:19.770+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:09:19.769+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:09:19.770+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:09:19.784+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.041 seconds
+[2026-06-21T22:10:24.692+0300] {processor.py:161} INFO - Started process (PID=18672) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:10:24.693+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:10:24.694+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:10:24.694+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:10:24.698+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:10:24.698+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:10:24.699+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:10:24.699+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:10:24.699+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:10:24.710+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.024 seconds
+[2026-06-21T22:11:24.806+0300] {processor.py:161} INFO - Started process (PID=18827) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:11:24.807+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:11:24.809+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:11:24.809+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:11:24.816+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:11:24.814+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:11:24.816+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:11:24.816+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:11:24.817+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:11:24.832+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.033 seconds
+[2026-06-21T22:12:15.959+0300] {processor.py:161} INFO - Started process (PID=18917) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:12:15.960+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:12:15.961+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:12:15.961+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:12:15.965+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:12:15.964+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:12:15.966+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:12:15.966+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:12:15.966+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:12:15.976+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.022 seconds
+[2026-06-21T22:13:13.014+0300] {processor.py:161} INFO - Started process (PID=19005) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:13:13.015+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:13:13.021+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:13:13.018+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:13:13.030+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:13:13.029+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:13:13.030+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:13:13.030+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:13:13.030+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:13:13.052+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.049 seconds
+[2026-06-21T22:13:59.184+0300] {processor.py:161} INFO - Started process (PID=19135) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:13:59.184+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:13:59.186+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:13:59.186+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:13:59.191+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:13:59.190+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:13:59.192+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:13:59.191+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:13:59.192+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:13:59.203+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.026 seconds
+[2026-06-21T22:14:58.413+0300] {processor.py:161} INFO - Started process (PID=19241) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:14:58.414+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:14:58.416+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:14:58.415+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:14:58.420+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:14:58.419+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:14:58.421+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:14:58.420+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:14:58.421+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:14:58.432+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.025 seconds
+[2026-06-21T22:15:52.603+0300] {processor.py:161} INFO - Started process (PID=19602) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:15:52.605+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:15:52.607+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:15:52.606+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:15:52.612+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:15:52.611+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:15:52.613+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:15:52.612+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:15:52.613+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:15:52.625+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.030 seconds
+[2026-06-21T22:16:51.129+0300] {processor.py:161} INFO - Started process (PID=19723) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:16:51.132+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:16:51.138+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:16:51.137+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:16:51.151+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:16:51.148+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:16:51.153+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:16:51.152+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:16:51.154+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:16:51.182+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.076 seconds
+[2026-06-21T22:17:50.902+0300] {processor.py:161} INFO - Started process (PID=19897) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:17:50.903+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:17:50.906+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:17:50.905+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:17:50.912+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:17:50.911+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:17:50.913+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:17:50.913+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:17:50.914+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:17:50.929+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.036 seconds
+[2026-06-21T22:18:47.609+0300] {processor.py:161} INFO - Started process (PID=19992) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:18:47.609+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:18:47.611+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:18:47.610+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:18:47.616+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:18:47.615+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:18:47.616+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:18:47.616+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:18:47.617+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:18:47.626+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.022 seconds
+[2026-06-21T22:19:44.689+0300] {processor.py:161} INFO - Started process (PID=20103) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:19:44.690+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:19:44.693+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:19:44.692+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:19:44.703+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:19:44.702+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:19:44.704+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:19:44.703+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:19:44.704+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:19:44.723+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.045 seconds
+[2026-06-21T22:21:18.451+0300] {processor.py:161} INFO - Started process (PID=20262) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:21:18.454+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:21:18.460+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:21:18.458+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:21:18.476+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:21:18.473+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:21:18.477+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:21:18.477+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:21:18.478+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:21:18.494+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.061 seconds
+[2026-06-21T22:23:30.111+0300] {processor.py:161} INFO - Started process (PID=20491) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:23:30.113+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:23:30.117+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:23:30.116+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:23:30.124+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:23:30.123+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:23:30.125+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:23:30.125+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:23:30.125+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:23:30.139+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.044 seconds
+[2026-06-21T22:24:27.362+0300] {processor.py:161} INFO - Started process (PID=20584) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:24:27.363+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:24:27.364+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:24:27.364+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:24:27.369+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:24:27.368+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:24:27.369+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:24:27.369+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:24:27.369+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:24:27.379+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.022 seconds
+[2026-06-21T22:48:17.753+0300] {processor.py:161} INFO - Started process (PID=22153) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:48:17.754+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:48:17.757+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:48:17.756+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:48:17.766+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:48:17.764+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:48:17.767+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:48:17.766+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:48:17.768+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:48:17.785+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.041 seconds
+[2026-06-21T22:49:15.765+0300] {processor.py:161} INFO - Started process (PID=22244) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:49:15.768+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:49:15.773+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:49:15.772+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:49:15.782+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:49:15.780+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:49:15.783+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:49:15.782+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:49:15.783+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:49:15.796+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.049 seconds
+[2026-06-21T22:50:13.665+0300] {processor.py:161} INFO - Started process (PID=22334) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:50:13.667+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:50:13.670+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:50:13.669+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:50:13.680+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:50:13.679+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:50:13.681+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:50:13.681+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:50:13.682+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:50:13.696+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.044 seconds
+[2026-06-21T22:51:13.544+0300] {processor.py:161} INFO - Started process (PID=22596) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:51:13.546+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py for tasks to queue
+[2026-06-21T22:51:13.549+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:51:13.548+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:51:13.556+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:51:13.555+0300] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-06-21T22:51:13.557+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:51:13.557+0300] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-06-21T22:51:13.558+0300] {processor.py:842} WARNING - No viable dags retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py
+[2026-06-21T22:51:13.570+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py took 0.042 seconds

@@ -23,7 +23,7 @@ DATA_SOURCES = {
 }
 
 # ─── Kafka ───────────────────────────────────────────────
-KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
+KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "127.0.0.1:9092")
 KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "sensor-data")
 
 # ─── PostgreSQL ──────────────────────────────────────────

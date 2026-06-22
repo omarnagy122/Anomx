@@ -13,13 +13,15 @@ COLUMNS = [
 
 # Load data
 df = pd.read_csv(
-    "/media/data/omar/programming course/DEPI/DEPI project/anomx/data/raw/train_FD001.txt",
-    sep=r'\s+', header=None, names=COLUMNS
+    "/opt/airflow/data/raw/CMAPSSData/train_FD001.txt",
+    sep=r"\s+",
+    header=None,
+    names=COLUMNS
 )
 
 # Kafka Producer
 producer = KafkaProducer(
-    bootstrap_servers='localhost:9092',
+    bootstrap_servers='host.docker.internal:9092',
     value_serializer=lambda x: json.dumps(x).encode('utf-8')
 )
 
@@ -27,10 +29,19 @@ print(f"Starting to stream {len(df)} rows...")
 
 for _, row in df.iterrows():
     message = row.to_dict()
-    producer.send('sensor-data', value=message)
-    print(f"Sent → Engine {int(message['engine_id'])} | Cycle {int(message['time_in_cycles'])}")
-    time.sleep(0.1)  # simulate real-time stream
+
+    producer.send(
+        'sensor-data',
+        value=message
+    )
+
+    print(
+        f"Sent -> Engine {int(message['engine_id'])} | "
+        f"Cycle {int(message['time_in_cycles'])}"
+    )
+
+    time.sleep(0.1)
 
 producer.flush()
-print("Done!")
 
+print("Done!")

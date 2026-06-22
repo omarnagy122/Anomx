@@ -2132,3 +2132,17 @@ SyntaxError: invalid syntax
 [2026-06-22T05:14:54.133+0000] {logging_mixin.py:190} INFO - [2026-06-22T05:14:54.133+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2026-06-22T05:14:54.147+0000] {logging_mixin.py:190} INFO - [2026-06-22T05:14:54.147+0000] {dag.py:4180} INFO - Setting next_dagrun for anomx_first_kafka_pipeline to None, run_after=None
 [2026-06-22T05:14:54.163+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/anomx_first_pipeline.py took 0.074 seconds
+[2026-06-22T05:15:24.482+0000] {processor.py:186} INFO - Started process (PID=2414) to work on /opt/airflow/dags/anomx_first_pipeline.py
+[2026-06-22T05:15:24.484+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/anomx_first_pipeline.py for tasks to queue
+[2026-06-22T05:15:24.486+0000] {logging_mixin.py:190} INFO - [2026-06-22T05:15:24.485+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/anomx_first_pipeline.py
+[2026-06-22T05:15:24.497+0000] {processor.py:925} INFO - DAG(s) 'anomx_first_kafka_pipeline' retrieved from /opt/airflow/dags/anomx_first_pipeline.py
+[2026-06-22T05:15:24.535+0000] {logging_mixin.py:190} INFO - [2026-06-22T05:15:24.535+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-06-22T05:15:24.549+0000] {logging_mixin.py:190} INFO - [2026-06-22T05:15:24.549+0000] {dag.py:4180} INFO - Setting next_dagrun for anomx_first_kafka_pipeline to None, run_after=None
+[2026-06-22T05:15:24.566+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/anomx_first_pipeline.py took 0.090 seconds
+[2026-06-22T05:15:54.817+0000] {processor.py:186} INFO - Started process (PID=2424) to work on /opt/airflow/dags/anomx_first_pipeline.py
+[2026-06-22T05:15:54.818+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/anomx_first_pipeline.py for tasks to queue
+[2026-06-22T05:15:54.822+0000] {logging_mixin.py:190} INFO - [2026-06-22T05:15:54.822+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/anomx_first_pipeline.py
+[2026-06-22T05:15:54.843+0000] {processor.py:925} INFO - DAG(s) 'anomx_first_kafka_pipeline' retrieved from /opt/airflow/dags/anomx_first_pipeline.py
+[2026-06-22T05:15:54.867+0000] {logging_mixin.py:190} INFO - [2026-06-22T05:15:54.866+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-06-22T05:15:54.879+0000] {logging_mixin.py:190} INFO - [2026-06-22T05:15:54.878+0000] {dag.py:4180} INFO - Setting next_dagrun for anomx_first_kafka_pipeline to None, run_after=None
+[2026-06-22T05:15:54.893+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/anomx_first_pipeline.py took 0.081 seconds

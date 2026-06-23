@@ -1,47 +1,88 @@
+from __future__ import annotations
+
+import json
+import os
+import sys
+import time
+from pathlib import Path
+
 import pandas as pd
 from kafka import KafkaProducer
-import json
-import time
 
-# Column names for C-MAPSS dataset
-COLUMNS = [
-    'engine_id', 'time_in_cycles',
-    'op_setting_1', 'op_setting_2', 'op_setting_3',
-    's1','s2','s3','s4','s5','s6','s7','s8','s9','s10',
-    's11','s12','s13','s14','s15','s16','s17','s18','s19','s20','s21'
-]
+sys.path.append(str(Path(__file__).resolve().parents[1]))
 
-# Load data
-df = pd.read_csv(
-    "/opt/airflow/data/raw/CMAPSSData/train_FD001.txt",
-    sep=r"\s+",
-    header=None,
-    names=COLUMNS
+from config import (  # noqa: E402
+    DATA_SOURCES,
+    KAFKA_BOOTSTRAP_SERVERS,
+    KAFKA_TOPIC,
+    MODE,
+    SENSOR_COLUMNS,
 )
 
-# Kafka Producer
-producer = KafkaProducer(
-    bootstrap_servers='host.docker.internal:9092',
-    value_serializer=lambda x: json.dumps(x).encode('utf-8')
-)
 
-print(f"Starting to stream {len(df)} rows...")
+def _resolve_dataset_path(dataset: str) -> Path:
+    env_path = os.getenv("ANOMX_DATASET_PATH")
+    if env_path:
+        return Path(env_path)
 
-for _, row in df.iterrows():
-    message = row.to_dict()
+    try:
+        return Path(DATA_SOURCES["simulation"][dataset])
+    except KeyError as exc:
+        raise ValueError(f"Unknown dataset '{dataset}'. Expected one of FD001, FD002, FD003, FD004.") from exc
 
-    producer.send(
-        'sensor-data',
-        value=message
+
+def stream_simulation(dataset: str = "FD001") -> int:
+    dataset_path = _resolve_dataset_path(dataset)
+    if not dataset_path.exists():
+        raise FileNotFoundError(f"Dataset file not found: {dataset_path}")
+
+    sleep_seconds = float(os.getenv("PRODUCER_SLEEP_SECONDS", "0.1"))
+    bootstrap_servers = os.getenv("KAFKA_BOOTSTRAP_SERVERS", KAFKA_BOOTSTRAP_SERVERS)
+    topic = os.getenv("KAFKA_TOPIC", KAFKA_TOPIC)
+
+    df = pd.read_csv(dataset_path, sep=r"\s+", header=None, names=SENSOR_COLUMNS)
+
+    producer = KafkaProducer(
+        bootstrap_servers=bootstrap_servers,
+        value_serializer=lambda x: json.dumps(x).encode("utf-8"),
     )
 
-    print(
-        f"Sent -> Engine {int(message['engine_id'])} | "
-        f"Cycle {int(message['time_in_cycles'])}"
-    )
+    print(f"[producer] Dataset: {dataset}")
+    print(f"[producer] Path: {dataset_path}")
+    print(f"[producer] Kafka: {bootstrap_servers}")
+    print(f"[producer] Topic: {topic}")
+    print(f"[producer] Streaming {len(df)} rows...")
 
-    time.sleep(0.1)
+    for _, row in df.iterrows():
+        message = row.to_dict()
+        message["source"] = dataset
+        message["source_file"] = dataset
+        producer.send(topic, value=message)
+        print(
+            f"Sent -> Engine {int(message['engine_id'])} | "
+            f"Cycle {int(message['time_in_cycles'])} | Source {dataset}"
+        )
+        if sleep_seconds > 0:
+            time.sleep(sleep_seconds)
 
-producer.flush()
+    producer.flush()
+    producer.close()
+    print(f"[producer] Done — {dataset} streamed successfully.")
+    return len(df)
 
-print("Done!")
+
+def stream_live() -> int:
+    print("[live] MQTT streaming is not implemented yet.")
+    print("[live] Set MQTT_HOST, MQTT_PORT, and MQTT_TOPIC when real sensors are available.")
+    return 0
+
+
+if __name__ == "__main__":
+    dataset_arg = sys.argv[1] if len(sys.argv) > 1 else os.getenv("ANOMX_DATASET", "FD001")
+
+    if MODE == "simulation":
+        stream_simulation(dataset_arg)
+    elif MODE == "live":
+        stream_live()
+    else:
+        raise ValueError(f"Unsupported ANOMX_MODE: {MODE}")

@@ -1,4 +1,4 @@
-
+version: "3.8"
 
 services:
   zookeeper:
@@ -27,12 +27,10 @@ services:
       KAFKA_BROKER_ID: 1001
       KAFKA_RESERVED_BROKER_MAX_ID: 10000
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-
       KAFKA_LISTENERS: INTERNAL://0.0.0.0:29092,EXTERNAL://0.0.0.0:9092
       KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:29092,EXTERNAL://host.docker.internal:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
-
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
 
@@ -47,6 +45,7 @@ services:
       POSTGRES_DB: anomx_db
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
     networks:
       anomx_default:
         aliases:
@@ -57,4 +56,4 @@ volumes:
 
 networks:
   anomx_default:
-    external: true
+    name: anomx_default

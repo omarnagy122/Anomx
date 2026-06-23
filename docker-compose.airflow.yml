@@ -1,19 +1,26 @@
-version: '3.8'
+version: "3.8"
 
 x-airflow-common: &airflow-common
   build:
     context: ./airflow
     dockerfile: Dockerfile
-
-  env_file:
-    - ./airflow/.env
-
   environment:
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__CORE__LOAD_EXAMPLES: "False"
-    AIRFLOW__CORE__FERNET_KEY: ""
-    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres/airflow
-
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "False"
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
+    ANOMX_DATASET_PATH: /opt/airflow/data/raw/CMAPSSData/train_FD001.txt
+    KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    KAFKA_TOPIC: sensor-data
+    KAFKA_GROUP_ID: anomx-airflow-group
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: "5432"
+    POSTGRES_DB: anomx_db
+    POSTGRES_USER: anomx
+    POSTGRES_PASSWORD: anomx123
+    PRODUCER_SLEEP_SECONDS: "0"
+    CONSUMER_TIMEOUT_MS: "30000"
+    PYTHONUNBUFFERED: "1"
   volumes:
     - ./airflow/dags:/opt/airflow/dags
     - ./airflow/logs:/opt/airflow/logs
@@ -21,28 +28,30 @@ x-airflow-common: &airflow-common
     - ./ingestion:/opt/airflow/ingestion
     - ./processing:/opt/airflow/processing
     - ./data:/opt/airflow/data
-
+    - ./config.py:/opt/airflow/config.py:ro
   depends_on:
     - airflow-postgres
-
   networks:
     - anomx_default
 
 services:
-
   airflow-postgres:
     image: postgres:15
+    container_name: anomx-airflow-postgres
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
       POSTGRES_DB: airflow
     ports:
       - "5433:5432"
+    volumes:
+      - airflow_pgdata:/var/lib/postgresql/data
     networks:
       - anomx_default
 
   airflow-init:
     <<: *airflow-common
+    container_name: anomx-airflow-init
     command: >
       bash -c "
       airflow db migrate &&
@@ -52,19 +61,25 @@ services:
       --firstname Admin
       --lastname User
       --role Admin
-      --email admin@anomx.com
+      --email admin@anomx.com || true
       "
 
   airflow-webserver:
     <<: *airflow-common
+    container_name: anomx-airflow-webserver
     command: webserver
     ports:
       - "8080:8080"
 
   airflow-scheduler:
     <<: *airflow-common
+    container_name: anomx-airflow-scheduler
     command: scheduler
+
+volumes:
+  airflow_pgdata:
 
 networks:
   anomx_default:
+    name: anomx_default
     external: true

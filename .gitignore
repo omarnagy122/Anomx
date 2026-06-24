@@ -1,16 +1,49 @@
-venv/
-.env
+# Python
 __pycache__/
-*.pyc
-.vscode/
-data/
-airflow/logs/
-airflow/plugins/
-*.log
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
-airflow/logs/
-data/
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment and local config
 .env
-__pycache__/
-*.pyc
+.env.*
+!.env.example
 .vscode/
+.idea/
+
+# Data and generated artifacts
+data/
+*.log
+*.pid
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+*.backup
+*.sql
+*.save
+*.save.*
+
+# Airflow runtime files
+airflow/logs/*
+!airflow/logs/.gitkeep
+airflow/plugins/*
+!airflow/plugins/.gitkeep
+airflow/airflow.cfg
+airflow/airflow.db
+airflow/airflow-webserver.pid
+airflow/webserver_config.py
+
+# Docker / OS
+.DS_Store
+Thumbs.db

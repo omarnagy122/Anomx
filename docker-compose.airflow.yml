@@ -9,6 +9,7 @@ x-airflow-common: &airflow-common
     AIRFLOW__CORE__LOAD_EXAMPLES: "False"
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "False"
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
+    ANOMX_DATASET: FD001
     ANOMX_DATASET_PATH: /opt/airflow/data/raw/CMAPSSData/train_FD001.txt
     KAFKA_BOOTSTRAP_SERVERS: kafka:29092
     KAFKA_TOPIC: sensor-data
@@ -19,7 +20,10 @@ x-airflow-common: &airflow-common
     POSTGRES_USER: anomx
     POSTGRES_PASSWORD: anomx123
     PRODUCER_SLEEP_SECONDS: "0"
+    PRODUCER_LOG_EVERY: "1000"
     CONSUMER_TIMEOUT_MS: "30000"
+    CONSUMER_LOG_EVERY: "1000"
+    POSTGRES_BATCH_SIZE: "500"
     PYTHONUNBUFFERED: "1"
   volumes:
     - ./airflow/dags:/opt/airflow/dags
@@ -30,7 +34,8 @@ x-airflow-common: &airflow-common
     - ./data:/opt/airflow/data
     - ./config.py:/opt/airflow/config.py:ro
   depends_on:
-    - airflow-postgres
+    airflow-postgres:
+      condition: service_healthy
   networks:
     - anomx_default
 
@@ -46,6 +51,11 @@ services:
       - "5433:5432"
     volumes:
       - airflow_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow -d airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
     networks:
       - anomx_default
 
@@ -61,7 +71,7 @@ services:
       --firstname Admin
       --lastname User
       --role Admin
-      --email admin@anomx.com || true
+      --email admin@anomx.local || true
       "
 
   airflow-webserver:

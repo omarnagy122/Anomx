@@ -23,21 +23,26 @@ POSTGRES_DB = os.getenv("POSTGRES_DB", "anomx_db")
 POSTGRES_USER = os.getenv("POSTGRES_USER", "anomx")
 POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "anomx123")
 
-DATASET_PATH = os.getenv("ANOMX_DATASET_PATH", "/opt/airflow/data/raw/CMAPSSData/train_FD001.txt")
+ANOMX_DATASET = os.getenv("ANOMX_DATASET", "FD001")
+DATASET_PATH = os.getenv("ANOMX_DATASET_PATH", f"/opt/airflow/data/raw/CMAPSSData/train_{ANOMX_DATASET}.txt")
 PRODUCER_SCRIPT_PATH = "/opt/airflow/ingestion/kafka_producer.py"
 CONSUMER_SCRIPT_PATH = "/opt/airflow/ingestion/kafka_consumer.py"
 
 
-def check_kafka() -> None:
-    host, port_text = KAFKA_BOOTSTRAP_SERVERS.split(":")
-    port = int(port_text)
+def _split_host_port(address: str) -> tuple[str, int]:
+    if ":" not in address:
+        raise AirflowFailException(f"Invalid host:port address: {address}")
+    host, port_text = address.rsplit(":", 1)
+    return host, int(port_text)
 
+
+def check_kafka() -> None:
+    host, port = _split_host_port(KAFKA_BOOTSTRAP_SERVERS)
     print(f"Checking Kafka TCP connection: {host}:{port}")
     try:
         socket.create_connection((host, port), timeout=10).close()
     except Exception as exc:
         raise AirflowFailException(f"Kafka TCP check failed at {host}:{port}. Error: {exc}") from exc
-
     print("Kafka TCP check passed.")
 
 
@@ -52,28 +57,38 @@ def check_postgres() -> None:
             password=POSTGRES_PASSWORD,
             connect_timeout=10,
         )
-        cursor = conn.cursor()
-        cursor.execute("SELECT 1;")
-        result = cursor.fetchone()
-        cursor.close()
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT 1;")
+            result = cursor.fetchone()
         conn.close()
     except Exception as exc:
         raise AirflowFailException(f"PostgreSQL check failed. Error: {exc}") from exc
 
     if result != (1,):
         raise AirflowFailException(f"Unexpected PostgreSQL result: {result}")
-
     print("PostgreSQL check passed.")
+
+
+def check_dataset() -> None:
+    dataset_path = Path(DATASET_PATH)
+    print(f"Checking dataset path: {dataset_path}")
+    if not dataset_path.exists() or not dataset_path.is_file():
+        raise AirflowFailException(
+            f"Dataset file not found: {dataset_path}. "
+            "Mount or copy C-MAPSS data to data/raw/CMAPSSData before triggering the DAG."
+        )
+    print("Dataset file exists.")
 
 
 def _run_python_script(script_path: str, extra_env: dict[str, str] | None = None) -> None:
     path = Path(script_path)
-    if not path.exists():
+    if not path.exists() or not path.is_file():
         raise AirflowFailException(f"Script not found: {path}")
 
     env = os.environ.copy()
     env.update(
         {
+            "ANOMX_DATASET": ANOMX_DATASET,
             "ANOMX_DATASET_PATH": DATASET_PATH,
             "KAFKA_BOOTSTRAP_SERVERS": KAFKA_BOOTSTRAP_SERVERS,
             "KAFKA_TOPIC": KAFKA_TOPIC,
@@ -91,6 +106,7 @@ def _run_python_script(script_path: str, extra_env: dict[str, str] | None = None
 
     command = [sys.executable, str(path)]
     print(f"Running command: {' '.join(command)}")
+
     process = subprocess.Popen(
         command,
         cwd="/opt/airflow",
@@ -111,20 +127,23 @@ def _run_python_script(script_path: str, extra_env: dict[str, str] | None = None
 
 
 def run_kafka_producer() -> None:
-    dataset_path = Path(DATASET_PATH)
-    if not dataset_path.exists():
-        raise AirflowFailException(f"Dataset file not found: {dataset_path}")
-
     _run_python_script(
         PRODUCER_SCRIPT_PATH,
-        extra_env={"PRODUCER_SLEEP_SECONDS": os.getenv("PRODUCER_SLEEP_SECONDS", "0")},
+        extra_env={
+            "PRODUCER_SLEEP_SECONDS": os.getenv("PRODUCER_SLEEP_SECONDS", "0"),
+            "PRODUCER_LOG_EVERY": os.getenv("PRODUCER_LOG_EVERY", "1000"),
+        },
     )
 
 
 def run_kafka_consumer() -> None:
     _run_python_script(
         CONSUMER_SCRIPT_PATH,
-        extra_env={"CONSUMER_TIMEOUT_MS": os.getenv("CONSUMER_TIMEOUT_MS", "30000")},
+        extra_env={
+            "CONSUMER_TIMEOUT_MS": os.getenv("CONSUMER_TIMEOUT_MS", "30000"),
+            "POSTGRES_BATCH_SIZE": os.getenv("POSTGRES_BATCH_SIZE", "500"),
+            "CONSUMER_LOG_EVERY": os.getenv("CONSUMER_LOG_EVERY", "1000"),
+        },
     )
 
 
@@ -137,10 +156,9 @@ def show_postgres_count() -> None:
         password=POSTGRES_PASSWORD,
         connect_timeout=10,
     )
-    cursor = conn.cursor()
-    cursor.execute("SELECT COUNT(*) FROM raw_sensor_data;")
-    count = cursor.fetchone()[0]
-    cursor.close()
+    with conn.cursor() as cursor:
+        cursor.execute("SELECT COUNT(*) FROM raw_sensor_data;")
+        count = cursor.fetchone()[0]
     conn.close()
     print(f"raw_sensor_data row count: {count}")
 
@@ -148,28 +166,29 @@ def show_postgres_count() -> None:
 default_args = {
     "owner": "anomx",
     "depends_on_past": False,
-    "retries": 0,
+    "retries": 1,
     "retry_delay": timedelta(seconds=30),
 }
 
 with DAG(
     dag_id="anomx_airflow_pipeline",
-    description="Improved AnomX DAG: checks Kafka/PostgreSQL, streams data, consumes it, and prevents duplicates.",
+    description="AnomX DAG: validate services, stream C-MAPSS data through Kafka, sink raw records to PostgreSQL idempotently.",
     default_args=default_args,
     start_date=datetime(2026, 1, 1),
     schedule=None,
     catchup=False,
     max_active_runs=1,
-    tags=["anomx", "airflow", "kafka", "postgres"],
+    tags=["anomx", "airflow", "kafka", "postgres", "cmapss"],
 ) as dag:
     start = EmptyOperator(task_id="start")
 
     check_kafka_task = PythonOperator(task_id="check_kafka", python_callable=check_kafka)
     check_postgres_task = PythonOperator(task_id="check_postgres", python_callable=check_postgres)
+    check_dataset_task = PythonOperator(task_id="check_dataset", python_callable=check_dataset)
     run_kafka_producer_task = PythonOperator(task_id="run_kafka_producer", python_callable=run_kafka_producer)
     run_kafka_consumer_task = PythonOperator(task_id="run_kafka_consumer", python_callable=run_kafka_consumer)
     show_postgres_count_task = PythonOperator(task_id="show_postgres_count", python_callable=show_postgres_count)
 
     end = EmptyOperator(task_id="end")
 
-    start >> check_kafka_task >> check_postgres_task >> run_kafka_producer_task >> run_kafka_consumer_task >> show_postgres_count_task >> end
+    start >> check_kafka_task >> check_postgres_task >> check_dataset_task >> run_kafka_producer_task >> run_kafka_consumer_task >> show_postgres_count_task >> end

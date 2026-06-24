@@ -28,7 +28,7 @@ def stream_simulation(dataset="FD001"):
         message['source'] = dataset
         producer.send(KAFKA_TOPIC, value=message)
         print(f"Sent → Engine {int(message['engine_id'])} | Cycle {int(message['time_in_cycles'])}")
-        time.sleep(0.1)
+        time.sleep(0.01)
 
     producer.flush()
     print(f"[simulation] Done — {dataset} streamed successfully.")

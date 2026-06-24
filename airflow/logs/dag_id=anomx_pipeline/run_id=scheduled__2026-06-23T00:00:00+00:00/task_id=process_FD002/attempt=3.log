@@ -1,0 +1,29 @@
+[2026-06-24T13:09:10.266+0300] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-24T13:09:10.305+0300] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: anomx_pipeline.process_FD002 scheduled__2026-06-23T00:00:00+00:00 [queued]>
+[2026-06-24T13:09:10.317+0300] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: anomx_pipeline.process_FD002 scheduled__2026-06-23T00:00:00+00:00 [queued]>
+[2026-06-24T13:09:10.318+0300] {taskinstance.py:2303} INFO - Starting attempt 3 of 4
+[2026-06-24T13:09:10.348+0300] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): process_FD002> on 2026-06-23 00:00:00+00:00
+[2026-06-24T13:09:10.358+0300] {standard_task_runner.py:63} INFO - Started process 46731 to run task
+[2026-06-24T13:09:10.360+0300] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'anomx_pipeline', 'process_FD002', 'scheduled__2026-06-23T00:00:00+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/anomx_pipeline.py', '--cfg-path', '/tmp/tmp087qm7gt']
+[2026-06-24T13:09:10.361+0300] {standard_task_runner.py:91} INFO - Job 19: Subtask process_FD002
+[2026-06-24T13:09:10.411+0300] {task_command.py:426} INFO - Running <TaskInstance: anomx_pipeline.process_FD002 scheduled__2026-06-23T00:00:00+00:00 [running]> on host omar-a-nagy-Precision-5520
+[2026-06-24T13:09:10.481+0300] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='omar' AIRFLOW_CTX_DAG_ID='anomx_pipeline' AIRFLOW_CTX_TASK_ID='process_FD002' AIRFLOW_CTX_EXECUTION_DATE='2026-06-23T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-06-23T00:00:00+00:00'
+[2026-06-24T13:09:10.482+0300] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-24T13:09:36.751+0300] {logging_mixin.py:188} INFO - [FD002] Total rows: 53759
+[2026-06-24T13:09:44.406+0300] {logging_mixin.py:188} INFO - +---------+--------------+------------+------------+------------+------+------+-------+-------+-----+-----+------+-------+-------+----+-----+------+-------+-------+-------+----+---+----+-----+-----+-------+-----------+---+-----------------+------------------+
+|engine_id|time_in_cycles|op_setting_1|op_setting_2|op_setting_3|    s1|    s2|     s3|     s4|   s5|   s6|    s7|     s8|     s9| s10|  s11|   s12|    s13|    s14|    s15| s16|s17| s18|  s19|  s20|    s21|source_file|rul|   rolling_avg_s2|    rolling_std_s2|
++---------+--------------+------------+------------+------------+------+------+-------+-------+-----+-----+------+-------+-------+----+-----+------+-------+-------+-------+----+---+----+-----+-----+-------+-----------+---+-----------------+------------------+
+|        7|             1|     10.0076|        0.25|       100.0|489.05|604.77|1498.63|1301.21|10.52|15.49|394.05|2318.91|8766.12|1.26| 45.2|371.67|2388.08|8126.07| 8.6286|0.03|369|2319|100.0| 28.7|17.1857|      FD002|173|           604.77|               0.0|
+|        7|             2|     24.9997|      0.6203|        60.0|462.54|536.81|1251.66|1041.52| 7.05| 9.02|175.41|1915.25|8009.61|0.94|36.77|164.82|2028.21|7871.16|10.8503|0.02|308|1915|84.93|14.42| 8.6057|      FD002|172|           570.79| 48.05497684943779|
+|        7|             3|     42.0009|      0.8419|       100.0| 445.0|549.36|1353.06|1124.45| 3.91| 5.72|138.96|2211.82|8310.91|1.02|41.68|131.03|2387.85|8078.87| 9.3279|0.02|328|2212|100.0|10.87| 6.4256|      FD002|171|563.6466666666666|36.162439537914665|
+|        7|             4|     42.0079|        0.84|       100.0| 445.0|549.27|1351.46|1122.16| 3.91| 5.71|138.53|2211.81|8317.02|1.02|41.88|130.74|2387.88|8081.24| 9.3116|0.02|330|2212|100.0|10.58| 6.3672|      FD002|170|         560.0525| 30.38892602577459|
+|        7|             5|     35.0039|      0.8415|       100.0|449.44|555.36|1359.37|1128.43| 5.48|  8.0|195.54| 2222.8|8345.46|1.02|41.82|183.13| 2387.9|8061.99|  9.298|0.02|335|2223|100.0|14.85| 8.9327|      FD002|169|          559.114|26.401117968752764|
++---------+--------------+------------+------------+------------+------+------+-------+-------+-----+-----+------+-------+-------+----+-----+------+-------+-------+-------+----+---+----+-----+-----+-------+-----------+---+-----------------+------------------+
+only showing top 5 rows
+[2026-06-24T13:10:17.375+0300] {logging_mixin.py:188} INFO - [FD002] Saved to PostgreSQL successfully.
+[2026-06-24T13:10:17.647+0300] {python.py:237} INFO - Done. Returned value was: None
+[2026-06-24T13:10:17.647+0300] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-24T13:10:17.653+0300] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=anomx_pipeline, task_id=process_FD002, execution_date=20260623T000000, start_date=20260624T100910, end_date=20260624T101017
+[2026-06-24T13:10:17.715+0300] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-06-24T13:10:17.725+0300] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-24T13:10:17.726+0300] {local_task_job_runner.py:222} INFO - ::endgroup::

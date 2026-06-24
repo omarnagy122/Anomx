@@ -1,0 +1,70 @@
+[2026-06-24T11:53:51.942+0300] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-24T11:53:51.966+0300] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: anomx_pipeline.ingest_FD004 scheduled__2026-06-23T00:00:00+00:00 [queued]>
+[2026-06-24T11:53:51.974+0300] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: anomx_pipeline.ingest_FD004 scheduled__2026-06-23T00:00:00+00:00 [queued]>
+[2026-06-24T11:53:51.974+0300] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-06-24T11:53:51.997+0300] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): ingest_FD004> on 2026-06-23 00:00:00+00:00
+[2026-06-24T11:53:52.005+0300] {standard_task_runner.py:63} INFO - Started process 11551 to run task
+[2026-06-24T11:53:52.008+0300] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'anomx_pipeline', 'ingest_FD004', 'scheduled__2026-06-23T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/anomx_pipeline.py', '--cfg-path', '/tmp/tmpxxkknxfc']
+[2026-06-24T11:53:52.009+0300] {standard_task_runner.py:91} INFO - Job 5: Subtask ingest_FD004
+[2026-06-24T11:53:52.072+0300] {task_command.py:426} INFO - Running <TaskInstance: anomx_pipeline.ingest_FD004 scheduled__2026-06-23T00:00:00+00:00 [running]> on host omar-a-nagy-Precision-5520
+[2026-06-24T11:53:52.157+0300] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='omar' AIRFLOW_CTX_DAG_ID='anomx_pipeline' AIRFLOW_CTX_TASK_ID='ingest_FD004' AIRFLOW_CTX_EXECUTION_DATE='2026-06-23T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-06-23T00:00:00+00:00'
+[2026-06-24T11:53:52.158+0300] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-24T11:53:52.480+0300] {conn.py:400} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to 127.0.0.1:9092 [('127.0.0.1', 9092) IPv4]
+[2026-06-24T11:53:52.481+0300] {conn.py:433} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connect attempt returned error 111. Disconnecting.
+[2026-06-24T11:53:52.481+0300] {conn.py:951} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2026-06-24T11:53:52.482+0300] {client_async.py:1051} WARNING - No node available during check_version; sleeping 0.04 secs
+[2026-06-24T11:53:52.523+0300] {conn.py:400} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to 127.0.0.1:9092 [('127.0.0.1', 9092) IPv4]
+[2026-06-24T11:53:52.524+0300] {conn.py:433} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connect attempt returned error 111. Disconnecting.
+[2026-06-24T11:53:52.525+0300] {conn.py:951} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2026-06-24T11:53:52.525+0300] {client_async.py:1051} WARNING - No node available during check_version; sleeping 0.12 secs
+[2026-06-24T11:53:52.643+0300] {conn.py:400} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to 127.0.0.1:9092 [('127.0.0.1', 9092) IPv4]
+[2026-06-24T11:53:52.644+0300] {conn.py:433} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connect attempt returned error 111. Disconnecting.
+[2026-06-24T11:53:52.644+0300] {conn.py:951} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2026-06-24T11:53:52.645+0300] {client_async.py:1051} WARNING - No node available during check_version; sleeping 0.21 secs
+[2026-06-24T11:53:52.852+0300] {conn.py:400} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to 127.0.0.1:9092 [('127.0.0.1', 9092) IPv4]
+[2026-06-24T11:53:52.853+0300] {conn.py:433} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connect attempt returned error 111. Disconnecting.
+[2026-06-24T11:53:52.854+0300] {conn.py:951} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2026-06-24T11:53:52.855+0300] {client_async.py:1051} WARNING - No node available during check_version; sleeping 0.33 secs
+[2026-06-24T11:53:53.184+0300] {conn.py:400} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to 127.0.0.1:9092 [('127.0.0.1', 9092) IPv4]
+[2026-06-24T11:53:53.185+0300] {conn.py:433} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connect attempt returned error 111. Disconnecting.
+[2026-06-24T11:53:53.186+0300] {conn.py:951} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2026-06-24T11:53:53.186+0300] {client_async.py:1051} WARNING - No node available during check_version; sleeping 0.83 secs
+[2026-06-24T11:53:54.019+0300] {conn.py:400} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to 127.0.0.1:9092 [('127.0.0.1', 9092) IPv4]
+[2026-06-24T11:53:54.020+0300] {conn.py:433} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connect attempt returned error 111. Disconnecting.
+[2026-06-24T11:53:54.020+0300] {conn.py:951} ERROR - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2026-06-24T11:53:54.021+0300] {client_async.py:1051} WARNING - No node available during check_version; sleeping 0.46 secs
+[2026-06-24T11:53:54.480+0300] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-24T11:53:54.482+0300] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/ingestion/kafka_producer.py", line 19, in stream_simulation
+    producer = KafkaProducer(
+               ^^^^^^^^^^^^^^
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/kafka/producer/kafka.py", line 485, in __init__
+    client = self.config['kafka_client'](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/kafka/client_async.py", line 262, in __init__
+    self.config['api_version'] = self.check_version()
+                                 ^^^^^^^^^^^^^^^^^^^^
+  File "/media/data/omar/programming course/DEPI/DEPI project/anomx/venv/lib/python3.12/site-packages/kafka/client_async.py", line 1076, in check_version
+    raise Errors.NoBrokersAvailable()
+kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+[2026-06-24T11:53:54.514+0300] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=anomx_pipeline, task_id=ingest_FD004, execution_date=20260623T000000, start_date=20260624T085351, end_date=20260624T085354
+[2026-06-24T11:53:54.560+0300] {standard_task_runner.py:110} ERROR - Failed to execute job 5 for task ingest_FD004 (NoBrokersAvailable; 11551)
+[2026-06-24T11:53:54.590+0300] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-06-24T11:53:54.621+0300] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-24T11:53:54.622+0300] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -24,6 +24,10 @@ x-airflow-common: &airflow-common
     CONSUMER_TIMEOUT_MS: "30000"
     CONSUMER_LOG_EVERY: "1000"
     POSTGRES_BATCH_SIZE: "500"
+    SPARK_DRIVER_MEMORY: "2g"
+    SPARK_MASTER: local[*]
+    PYSPARK_PYTHON: python
+    PYSPARK_DRIVER_PYTHON: python
     PYTHONUNBUFFERED: "1"
   volumes:
     - ./airflow/dags:/opt/airflow/dags
@@ -32,6 +36,7 @@ x-airflow-common: &airflow-common
     - ./ingestion:/opt/airflow/ingestion
     - ./processing:/opt/airflow/processing
     - ./data:/opt/airflow/data
+    - ./db:/opt/airflow/db:ro
     - ./config.py:/opt/airflow/config.py:ro
   depends_on:
     airflow-postgres:

@@ -47,6 +47,9 @@ SENSOR_COLUMNS = [
     "s11", "s12", "s13", "s14", "s15", "s16", "s17", "s18", "s19", "s20", "s21",
 ]
 
+USELESS_SENSOR_COLUMNS = ["s1", "s5", "s6", "s10", "s16", "s18", "s19"]
+FEATURE_SENSOR_COLUMNS = ["s2", "s3", "s4", "s7", "s11", "s12", "s15", "s20", "s21"]
+
 
 def dataset_path(dataset: str = "FD001") -> Path:
     dataset = dataset.upper()

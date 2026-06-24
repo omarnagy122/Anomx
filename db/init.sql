@@ -30,3 +30,63 @@ CREATE TABLE IF NOT EXISTS raw_sensor_data (
     inserted_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     CONSTRAINT raw_sensor_data_unique_row UNIQUE (source_file, engine_id, time_in_cycles)
 );
+
+CREATE TABLE IF NOT EXISTS processed_sensor_data (
+    id BIGSERIAL PRIMARY KEY,
+    source_file TEXT NOT NULL DEFAULT 'FD001',
+    engine_id INTEGER NOT NULL,
+    time_in_cycles INTEGER NOT NULL,
+    op_setting_1 DOUBLE PRECISION,
+    op_setting_2 DOUBLE PRECISION,
+    op_setting_3 DOUBLE PRECISION,
+    s2 DOUBLE PRECISION,
+    s3 DOUBLE PRECISION,
+    s4 DOUBLE PRECISION,
+    s7 DOUBLE PRECISION,
+    s8 DOUBLE PRECISION,
+    s9 DOUBLE PRECISION,
+    s11 DOUBLE PRECISION,
+    s12 DOUBLE PRECISION,
+    s13 DOUBLE PRECISION,
+    s14 DOUBLE PRECISION,
+    s15 DOUBLE PRECISION,
+    s17 DOUBLE PRECISION,
+    s20 DOUBLE PRECISION,
+    s21 DOUBLE PRECISION,
+    rolling_avg_s2 DOUBLE PRECISION,
+    rolling_std_s2 DOUBLE PRECISION,
+    delta_s2 DOUBLE PRECISION,
+    rolling_avg_s3 DOUBLE PRECISION,
+    rolling_std_s3 DOUBLE PRECISION,
+    delta_s3 DOUBLE PRECISION,
+    rolling_avg_s4 DOUBLE PRECISION,
+    rolling_std_s4 DOUBLE PRECISION,
+    delta_s4 DOUBLE PRECISION,
+    rolling_avg_s7 DOUBLE PRECISION,
+    rolling_std_s7 DOUBLE PRECISION,
+    delta_s7 DOUBLE PRECISION,
+    rolling_avg_s11 DOUBLE PRECISION,
+    rolling_std_s11 DOUBLE PRECISION,
+    delta_s11 DOUBLE PRECISION,
+    rolling_avg_s12 DOUBLE PRECISION,
+    rolling_std_s12 DOUBLE PRECISION,
+    delta_s12 DOUBLE PRECISION,
+    rolling_avg_s15 DOUBLE PRECISION,
+    rolling_std_s15 DOUBLE PRECISION,
+    delta_s15 DOUBLE PRECISION,
+    rolling_avg_s20 DOUBLE PRECISION,
+    rolling_std_s20 DOUBLE PRECISION,
+    delta_s20 DOUBLE PRECISION,
+    rolling_avg_s21 DOUBLE PRECISION,
+    rolling_std_s21 DOUBLE PRECISION,
+    delta_s21 DOUBLE PRECISION,
+    rul INTEGER NOT NULL,
+    processed_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    CONSTRAINT processed_sensor_data_unique_row UNIQUE (source_file, engine_id, time_in_cycles)
+);
+
+CREATE INDEX IF NOT EXISTS idx_raw_sensor_data_source_engine_cycle
+    ON raw_sensor_data (source_file, engine_id, time_in_cycles);
+
+CREATE INDEX IF NOT EXISTS idx_processed_sensor_data_source_engine_cycle
+    ON processed_sensor_data (source_file, engine_id, time_in_cycles);

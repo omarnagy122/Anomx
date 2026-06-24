@@ -1,49 +1,41 @@
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.coverage
-htmlcov/
-
-# Virtual environments
-venv/
+*.pyo
+*.pyd
 .venv/
+venv/
 env/
-ENV/
 
-# Environment and local config
+# Runtime data and logs
+airflow/logs/
+logs/
+*.log
+*.pid
+
+# Local secrets/config
 .env
 .env.*
 !.env.example
-.vscode/
-.idea/
 
-# Data and generated artifacts
-data/
-*.log
-*.pid
-*.db
-*.sqlite
-*.sqlite3
-*.bak
+# Docker/PostgreSQL runtime state
+pgdata/
+airflow_pgdata/
+postgres-data/
+
+# Generated backup/runtime files
 *.backup
-*.sql
+*.bak
 *.save
 *.save.*
+*.sql.dump
+anomx_backup.sql
 
-# Airflow runtime files
-airflow/logs/*
-!airflow/logs/.gitkeep
-airflow/plugins/*
-!airflow/plugins/.gitkeep
-airflow/airflow.cfg
-airflow/airflow.db
-airflow/airflow-webserver.pid
-airflow/webserver_config.py
+# Dataset is intentionally ignored in Git.
+# The submitted ZIP includes data/raw/CMAPSSData for local testing.
+data/
 
-# Docker / OS
+# IDE/editor
+.vscode/
+.idea/
 .DS_Store
-Thumbs.db

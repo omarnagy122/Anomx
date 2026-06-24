@@ -27,6 +27,7 @@ ANOMX_DATASET = os.getenv("ANOMX_DATASET", "FD001")
 DATASET_PATH = os.getenv("ANOMX_DATASET_PATH", f"/opt/airflow/data/raw/CMAPSSData/train_{ANOMX_DATASET}.txt")
 PRODUCER_SCRIPT_PATH = "/opt/airflow/ingestion/kafka_producer.py"
 CONSUMER_SCRIPT_PATH = "/opt/airflow/ingestion/kafka_consumer.py"
+SPARK_PROCESSOR_SCRIPT_PATH = "/opt/airflow/processing/spark_processor.py"
 
 
 def _split_host_port(address: str) -> tuple[str, int]:
@@ -46,17 +47,21 @@ def check_kafka() -> None:
     print("Kafka TCP check passed.")
 
 
+def _postgres_conn():
+    return psycopg2.connect(
+        host=POSTGRES_HOST,
+        port=POSTGRES_PORT,
+        database=POSTGRES_DB,
+        user=POSTGRES_USER,
+        password=POSTGRES_PASSWORD,
+        connect_timeout=10,
+    )
+
+
 def check_postgres() -> None:
     print(f"Checking PostgreSQL: {POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}")
     try:
-        conn = psycopg2.connect(
-            host=POSTGRES_HOST,
-            port=POSTGRES_PORT,
-            database=POSTGRES_DB,
-            user=POSTGRES_USER,
-            password=POSTGRES_PASSWORD,
-            connect_timeout=10,
-        )
+        conn = _postgres_conn()
         with conn.cursor() as cursor:
             cursor.execute("SELECT 1;")
             result = cursor.fetchone()
@@ -99,6 +104,10 @@ def _run_python_script(script_path: str, extra_env: dict[str, str] | None = None
             "POSTGRES_USER": POSTGRES_USER,
             "POSTGRES_PASSWORD": POSTGRES_PASSWORD,
             "PYTHONUNBUFFERED": "1",
+            "PYSPARK_PYTHON": os.getenv("PYSPARK_PYTHON", sys.executable),
+            "PYSPARK_DRIVER_PYTHON": os.getenv("PYSPARK_DRIVER_PYTHON", sys.executable),
+            "SPARK_MASTER": os.getenv("SPARK_MASTER", "local[*]"),
+            "SPARK_DRIVER_MEMORY": os.getenv("SPARK_DRIVER_MEMORY", "2g"),
         }
     )
     if extra_env:
@@ -147,20 +156,69 @@ def run_kafka_consumer() -> None:
     )
 
 
-def show_postgres_count() -> None:
-    conn = psycopg2.connect(
-        host=POSTGRES_HOST,
-        port=POSTGRES_PORT,
-        database=POSTGRES_DB,
-        user=POSTGRES_USER,
-        password=POSTGRES_PASSWORD,
-        connect_timeout=10,
+def run_spark_processing() -> None:
+    _run_python_script(
+        SPARK_PROCESSOR_SCRIPT_PATH,
+        extra_env={
+            "POSTGRES_BATCH_SIZE": os.getenv("POSTGRES_BATCH_SIZE", "500"),
+            "SPARK_DRIVER_MEMORY": os.getenv("SPARK_DRIVER_MEMORY", "2g"),
+            "SPARK_MASTER": os.getenv("SPARK_MASTER", "local[*]"),
+        },
     )
-    with conn.cursor() as cursor:
-        cursor.execute("SELECT COUNT(*) FROM raw_sensor_data;")
-        count = cursor.fetchone()[0]
-    conn.close()
-    print(f"raw_sensor_data row count: {count}")
+
+
+def validate_processed_data() -> None:
+    conn = _postgres_conn()
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT COUNT(*) FROM raw_sensor_data;")
+            raw_count = cursor.fetchone()[0]
+            cursor.execute("SELECT COUNT(*) FROM processed_sensor_data;")
+            processed_count = cursor.fetchone()[0]
+            cursor.execute("SELECT COUNT(*) FROM processed_sensor_data WHERE rul IS NULL;")
+            null_rul_count = cursor.fetchone()[0]
+            cursor.execute(
+                """
+                SELECT COUNT(*)
+                FROM (
+                    SELECT source_file, engine_id, time_in_cycles, COUNT(*) AS c
+                    FROM processed_sensor_data
+                    GROUP BY source_file, engine_id, time_in_cycles
+                    HAVING COUNT(*) > 1
+                ) duplicates;
+                """
+            )
+            duplicate_count = cursor.fetchone()[0]
+    finally:
+        conn.close()
+
+    print(f"raw_sensor_data row count: {raw_count}")
+    print(f"processed_sensor_data row count: {processed_count}")
+    print(f"processed_sensor_data null RUL rows: {null_rul_count}")
+    print(f"processed_sensor_data duplicate key groups: {duplicate_count}")
+
+    if raw_count <= 0:
+        raise AirflowFailException("raw_sensor_data is empty after Kafka ingestion.")
+    if processed_count <= 0:
+        raise AirflowFailException("processed_sensor_data is empty after Spark processing.")
+    if null_rul_count != 0:
+        raise AirflowFailException(f"processed_sensor_data contains {null_rul_count} null RUL values.")
+    if duplicate_count != 0:
+        raise AirflowFailException(f"processed_sensor_data contains {duplicate_count} duplicate key groups.")
+
+
+def show_postgres_counts() -> None:
+    conn = _postgres_conn()
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT COUNT(*) FROM raw_sensor_data;")
+            raw_count = cursor.fetchone()[0]
+            cursor.execute("SELECT COUNT(*) FROM processed_sensor_data;")
+            processed_count = cursor.fetchone()[0]
+    finally:
+        conn.close()
+    print(f"raw_sensor_data row count: {raw_count}")
+    print(f"processed_sensor_data row count: {processed_count}")
 
 
 default_args = {
@@ -172,13 +230,13 @@ default_args = {
 
 with DAG(
     dag_id="anomx_airflow_pipeline",
-    description="AnomX DAG: validate services, stream C-MAPSS data through Kafka, sink raw records to PostgreSQL idempotently.",
+    description="AnomX DAG: Kafka raw ingestion, PySpark cleaning/feature engineering, PostgreSQL ML-ready output.",
     default_args=default_args,
     start_date=datetime(2026, 1, 1),
     schedule=None,
     catchup=False,
     max_active_runs=1,
-    tags=["anomx", "airflow", "kafka", "postgres", "cmapss"],
+    tags=["anomx", "airflow", "kafka", "postgres", "pyspark", "cmapss"],
 ) as dag:
     start = EmptyOperator(task_id="start")
 
@@ -187,8 +245,21 @@ with DAG(
     check_dataset_task = PythonOperator(task_id="check_dataset", python_callable=check_dataset)
     run_kafka_producer_task = PythonOperator(task_id="run_kafka_producer", python_callable=run_kafka_producer)
     run_kafka_consumer_task = PythonOperator(task_id="run_kafka_consumer", python_callable=run_kafka_consumer)
-    show_postgres_count_task = PythonOperator(task_id="show_postgres_count", python_callable=show_postgres_count)
+    run_spark_processing_task = PythonOperator(task_id="run_spark_processing", python_callable=run_spark_processing)
+    validate_processed_data_task = PythonOperator(task_id="validate_processed_data", python_callable=validate_processed_data)
+    show_postgres_counts_task = PythonOperator(task_id="show_postgres_counts", python_callable=show_postgres_counts)
 
     end = EmptyOperator(task_id="end")
 
-    start >> check_kafka_task >> check_postgres_task >> check_dataset_task >> run_kafka_producer_task >> run_kafka_consumer_task >> show_postgres_count_task >> end
+    (
+        start
+        >> check_kafka_task
+        >> check_postgres_task
+        >> check_dataset_task
+        >> run_kafka_producer_task
+        >> run_kafka_consumer_task
+        >> run_spark_processing_task
+        >> validate_processed_data_task
+        >> show_postgres_counts_task
+        >> end
+    )

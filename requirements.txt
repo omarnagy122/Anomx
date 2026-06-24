@@ -1,4 +1,4 @@
-kafka-python==2.0.2
+kafka-python-ng==2.2.3
 pandas==2.2.3
 psycopg2-binary==2.9.10
 pyspark==3.5.3

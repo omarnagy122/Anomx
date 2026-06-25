@@ -1,41 +1,21 @@
-# Python
+.env
 __pycache__/
-*.py[cod]
-*.pyo
-*.pyd
+*.pyc
+.pytest_cache/
 .venv/
 venv/
-env/
-
-# Runtime data and logs
 airflow/logs/
-logs/
+airflow/plugins/
 *.log
-*.pid
+*.zip
+# Keep bundled C-MAPSS files for this handoff ZIP, but do not commit large local data dumps later.
+# data/
 
-# Local secrets/config
+airflow/logs/
+airflow/.env
 .env
-.env.*
-!.env.example
-
-# Docker/PostgreSQL runtime state
-pgdata/
-airflow_pgdata/
-postgres-data/
-
-# Generated backup/runtime files
-*.backup
-*.bak
-*.save
-*.save.*
-*.sql.dump
-anomx_backup.sql
-
-# Dataset is intentionally ignored in Git.
-# The submitted ZIP includes data/raw/CMAPSSData for local testing.
-data/
-
-# IDE/editor
-.vscode/
-.idea/
-.DS_Store
+__pycache__/
+.pytest_cache/
+*.pyc
+data/raw/CMAPSSData/*
+!data/raw/CMAPSSData/.gitkeep

@@ -8,9 +8,7 @@ services:
     ports:
       - "2181:2181"
     networks:
-      anomx_default:
-        aliases:
-          - zookeeper
+      - anomx_default
 
   kafka:
     image: confluentinc/cp-kafka:7.4.0
@@ -21,8 +19,7 @@ services:
       - "9092:9092"
       - "29092:29092"
     environment:
-      KAFKA_BROKER_ID: 1001
-      KAFKA_RESERVED_BROKER_MAX_ID: 10000
+      KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_LISTENERS: INTERNAL://0.0.0.0:29092,EXTERNAL://0.0.0.0:9092
       KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:29092,EXTERNAL://localhost:9092
@@ -37,9 +34,7 @@ services:
       retries: 12
       start_period: 30s
     networks:
-      anomx_default:
-        aliases:
-          - kafka
+      - anomx_default
 
   postgres:
     image: postgres:15
@@ -59,9 +54,73 @@ services:
       timeout: 5s
       retries: 10
     networks:
-      anomx_default:
-        aliases:
-          - postgres
+      - anomx_default
+
+  consumer:
+    image: anomx-incremental-fixed-app:latest
+    build: .
+    container_name: anomx-raw-consumer
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      KAFKA_TOPIC: sensor-data
+      KAFKA_GROUP_ID: anomx-raw-consumer
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: anomx_db
+      POSTGRES_USER: anomx
+      POSTGRES_PASSWORD: anomx123
+      POSTGRES_COMMIT_EVERY: "1"
+      CONSUMER_LOG_EVERY: "1000"
+      CONSUMER_TIMEOUT_MS: "0"
+    command: python ingestion/kafka_consumer.py
+    restart: unless-stopped
+    networks:
+      - anomx_default
+
+  producer:
+    image: anomx-incremental-fixed-app:latest
+    build: .
+    profiles: ["tools"]
+    depends_on:
+      kafka:
+        condition: service_healthy
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      KAFKA_TOPIC: sensor-data
+      PRODUCER_LOG_EVERY: "1000"
+      PRODUCER_SLEEP_SECONDS: "0"
+    entrypoint: ["python", "ingestion/kafka_producer.py"]
+    command: ["FD001", "--start-row", "1", "--limit", "1000", "--sleep", "0"]
+    volumes:
+      - ./data:/app/data:ro
+    networks:
+      - anomx_default
+
+  prediction:
+    image: anomx-incremental-fixed-app:latest
+    build: .
+    profiles: ["tools"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: anomx_db
+      POSTGRES_USER: anomx
+      POSTGRES_PASSWORD: anomx123
+      PREDICTION_WINDOW_CYCLES: "50"
+      ALERT_HIGH_THRESHOLD: "70"
+      ALERT_CRITICAL_THRESHOLD: "90"
+    entrypoint: ["python", "prediction/prediction_pipeline.py"]
+    command: ["--run-type", "manual", "--window-cycles", "50"]
+    networks:
+      - anomx_default
 
 volumes:
   pgdata:

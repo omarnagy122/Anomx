@@ -1,0 +1,15 @@
+.git
+.gitignore
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+airflow/logs/
+airflow/plugins/
+*.log
+*.zip
+TEST_REPORT.md
+# Keep Docker images small. The producer reads C-MAPSS through a bind mount.
+data/raw/CMAPSSData/*
+!data/raw/CMAPSSData/.gitkeep

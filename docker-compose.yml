@@ -3,11 +3,15 @@ version: '3.8'
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.0
+    container_name: anomx_zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
+    networks:
+      - anomx-network
 
   kafka:
     image: confluentinc/cp-kafka:7.4.0
+    container_name: anomx_kafka
     depends_on: [zookeeper]
     ports:
       - "9092:9092"
@@ -15,9 +19,12 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - anomx-network
 
   postgres:
     image: postgres:15
+    container_name: anomx_postgres
     ports:
       - "5432:5432"
     environment:
@@ -26,8 +33,22 @@ services:
       POSTGRES_DB: anomx_db
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - anomx-network
+
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: anomx_mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+    networks:
+      - anomx-network
+
+networks:
+  anomx-network:
+    driver: bridge
 
 volumes:
   pgdata:
-
-

@@ -1,15 +1,49 @@
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from __future__ import annotations
 
-from kafka import KafkaConsumer
-import psycopg2
 import json
+import os
+import sys
+from pathlib import Path
+from typing import Any
+
+import psycopg2
+from kafka import KafkaConsumer
+from psycopg2.extras import execute_batch
+
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+
 from config import (
-    KAFKA_BOOTSTRAP_SERVERS, KAFKA_TOPIC,
-    POSTGRES_HOST, POSTGRES_PORT,
-    POSTGRES_DB, POSTGRES_USER, POSTGRES_PASS
+    KAFKA_BOOTSTRAP_SERVERS, KAFKA_TOPIC, KAFKA_GROUP_ID,
+    POSTGRES_HOST, POSTGRES_PORT, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASS,
+    SENSOR_COLUMNS, CONSUMER_TIMEOUT_MS, CONSUMER_LOG_EVERY, POSTGRES_BATCH_SIZE
 )
+
+RAW_INSERT_COLUMNS = ["source_file", *SENSOR_COLUMNS]
+
+INSERT_SQL = f"""
+INSERT INTO raw_sensor_data ({", ".join(RAW_INSERT_COLUMNS)})
+VALUES ({", ".join([f"%({col})s" for col in RAW_INSERT_COLUMNS])})
+ON CONFLICT (source_file, engine_id, time_in_cycles)
+DO NOTHING;
+"""
+
+def _normalise_message(data: dict[str, Any]) -> dict[str, Any]:
+    data.setdefault("source", "FD001")
+    data.setdefault("source_file", data["source"])
+    normalised = {col: data.get(col) for col in RAW_INSERT_COLUMNS}
+    normalised["source_file"] = str(normalised["source_file"])
+    normalised["engine_id"] = int(normalised["engine_id"])
+    normalised["time_in_cycles"] = int(normalised["time_in_cycles"])
+    return normalised
+
+def _commit_batch(conn, consumer, cursor, batch: list, processed: int) -> None:
+    if not batch:
+        return
+    execute_batch(cursor, INSERT_SQL, batch, page_size=len(batch))
+    conn.commit()
+    consumer.commit()
+    print(f"[consumer] Committed {len(batch)} rows — total: {processed}")
+    batch.clear()
 
 def consume():
     conn = psycopg2.connect(
@@ -21,36 +55,50 @@ def consume():
     consumer = KafkaConsumer(
         KAFKA_TOPIC,
         bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
-        value_deserializer=lambda x: json.loads(x.decode('utf-8')),
-        auto_offset_reset='earliest',
-        group_id='anomx-group'
+        auto_offset_reset="earliest",
+        group_id=KAFKA_GROUP_ID,
+        enable_auto_commit=False,
+        consumer_timeout_ms=CONSUMER_TIMEOUT_MS,
+        value_deserializer=lambda raw: json.loads(raw.decode("utf-8")),
     )
 
-    print("Consumer started — waiting for messages...")
+    print(f"[consumer] Started — topic: {KAFKA_TOPIC}")
 
-    for message in consumer:
-        data = message.value
-        cursor.execute("""
-            INSERT INTO raw_sensor_data (
-                engine_id, time_in_cycles,
-                op_setting_1, op_setting_2, op_setting_3,
-                s1, s2, s3, s4, s5, s6, s7, s8, s9, s10,
-                s11, s12, s13, s14, s15, s16, s17, s18, s19, s20, s21,
-                source_file
-            ) VALUES (
-                %(engine_id)s, %(time_in_cycles)s,
-                %(op_setting_1)s, %(op_setting_2)s, %(op_setting_3)s,
-                %(s1)s, %(s2)s, %(s3)s, %(s4)s, %(s5)s,
-                %(s6)s, %(s7)s, %(s8)s, %(s9)s, %(s10)s,
-                %(s11)s, %(s12)s, %(s13)s, %(s14)s, %(s15)s,
-                %(s16)s, %(s17)s, %(s18)s, %(s19)s, %(s20)s, %(s21)s,
-                %(source)s
-            )
-            ON CONFLICT (source_file, engine_id, time_in_cycles)
-            DO NOTHING
-        """, data)
-        conn.commit()
-        print(f"Saved → Engine {data['engine_id']} | Cycle {data['time_in_cycles']} | Source {data['source']}")
+    processed = 0
+    skipped = 0
+    batch = []
+
+    try:
+        for message in consumer:
+            try:
+                data = _normalise_message(message.value)
+            except Exception as exc:
+                skipped += 1
+                print(f"[consumer] Skipped invalid message: {exc}")
+                continue
+
+            batch.append(data)
+            processed += 1
+
+            if processed % CONSUMER_LOG_EVERY == 0:
+                print(f"[consumer] Processed {processed} messages")
+
+            if len(batch) >= POSTGRES_BATCH_SIZE:
+                _commit_batch(conn, consumer, cursor, batch, processed)
+
+        _commit_batch(conn, consumer, cursor, batch, processed)
+        print(f"[consumer] Done — processed: {processed}, skipped: {skipped}")
+        return processed, skipped
+
+    except Exception:
+        conn.rollback()
+        print("[consumer] Rolled back transaction.")
+        raise
+
+    finally:
+        consumer.close()
+        cursor.close()
+        conn.close()
 
 if __name__ == "__main__":
     consume()

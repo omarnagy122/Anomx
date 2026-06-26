@@ -1,0 +1,397 @@
+[2026-06-21T21:38:31.781+0300] {processor.py:161} INFO - Started process (PID=15056) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:38:31.782+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:38:31.784+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:38:31.783+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:38:32.926+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:38:33.109+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:38:33.108+0300] {override.py:1829} INFO - Created Permission View: can edit on DAG:anomx_pipeline
+[2026-06-21T21:38:33.126+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:38:33.126+0300] {override.py:1829} INFO - Created Permission View: can read on DAG:anomx_pipeline
+[2026-06-21T21:38:33.140+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:38:33.140+0300] {override.py:1829} INFO - Created Permission View: can delete on DAG:anomx_pipeline
+[2026-06-21T21:38:33.141+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:38:33.141+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:38:33.151+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:38:33.150+0300] {dag.py:3118} INFO - Creating ORM DAG for anomx_pipeline
+[2026-06-21T21:38:33.160+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:38:33.160+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-20 00:00:00+00:00, run_after=2026-06-21 00:00:00+00:00
+[2026-06-21T21:38:33.187+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.411 seconds
+[2026-06-21T21:39:41.660+0300] {processor.py:161} INFO - Started process (PID=15151) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:39:41.661+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:39:41.662+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:39:41.662+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:39:42.604+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:39:42.619+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:39:42.618+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:39:42.634+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:39:42.633+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-20 00:00:00+00:00, run_after=2026-06-21 00:00:00+00:00
+[2026-06-21T21:39:42.662+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.008 seconds
+[2026-06-21T21:40:15.597+0300] {processor.py:161} INFO - Started process (PID=15208) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:40:15.597+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:40:15.599+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:40:15.599+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:40:16.568+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:40:16.582+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:40:16.582+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:40:16.599+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:40:16.599+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-20 00:00:00+00:00, run_after=2026-06-21 00:00:00+00:00
+[2026-06-21T21:40:16.627+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.036 seconds
+[2026-06-21T21:41:15.148+0300] {processor.py:161} INFO - Started process (PID=15321) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:41:15.149+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:41:15.150+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:41:15.150+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:41:16.031+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:41:16.044+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:41:16.043+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:41:16.057+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:41:16.057+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-20 00:00:00+00:00, run_after=2026-06-21 00:00:00+00:00
+[2026-06-21T21:41:16.094+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.951 seconds
+[2026-06-21T21:42:17.222+0300] {processor.py:161} INFO - Started process (PID=15445) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:42:17.223+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:42:17.225+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:42:17.225+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:42:18.184+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:42:18.197+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:42:18.196+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:42:18.214+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:42:18.214+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-20 00:00:00+00:00, run_after=2026-06-21 00:00:00+00:00
+[2026-06-21T21:42:18.243+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.027 seconds
+[2026-06-21T21:42:52.435+0300] {processor.py:161} INFO - Started process (PID=15606) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:42:52.437+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:42:52.440+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:42:52.439+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:42:53.750+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:42:53.769+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:42:53.768+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:42:53.788+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:42:53.788+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-20 00:00:00+00:00, run_after=2026-06-21 00:00:00+00:00
+[2026-06-21T21:42:53.825+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.400 seconds
+[2026-06-21T21:43:52.632+0300] {processor.py:161} INFO - Started process (PID=15719) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:43:52.633+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:43:52.636+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:43:52.635+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:43:54.207+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:43:54.222+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:43:54.221+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:43:54.242+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:43:54.241+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-20 00:00:00+00:00, run_after=2026-06-21 00:00:00+00:00
+[2026-06-21T21:43:54.273+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.648 seconds
+[2026-06-21T21:45:55.623+0300] {processor.py:161} INFO - Started process (PID=15962) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:45:55.626+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:45:55.629+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:45:55.629+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:45:56.886+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:45:56.912+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:45:56.911+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:45:56.930+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:45:56.929+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:45:56.960+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.352 seconds
+[2026-06-21T21:47:22.389+0300] {processor.py:161} INFO - Started process (PID=16127) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:47:22.390+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:47:22.393+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:47:22.392+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:47:23.292+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:47:23.305+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:47:23.304+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:47:23.322+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:47:23.322+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:47:23.352+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.971 seconds
+[2026-06-21T21:48:23.526+0300] {processor.py:161} INFO - Started process (PID=16219) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:48:23.528+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:48:23.532+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:48:23.531+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:48:24.420+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:48:24.433+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:48:24.432+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:48:24.449+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:48:24.448+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:48:24.478+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.962 seconds
+[2026-06-21T21:49:21.683+0300] {processor.py:161} INFO - Started process (PID=16310) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:49:21.685+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:49:21.688+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:49:21.687+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:49:22.658+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:49:22.670+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:49:22.670+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:49:22.685+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:49:22.684+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:49:22.713+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.043 seconds
+[2026-06-21T21:50:08.273+0300] {processor.py:161} INFO - Started process (PID=16386) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:50:08.275+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:50:08.277+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:50:08.276+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:50:09.238+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:50:09.250+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:50:09.250+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:50:09.266+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:50:09.266+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:50:09.299+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.034 seconds
+[2026-06-21T21:51:51.632+0300] {processor.py:161} INFO - Started process (PID=16571) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:51:51.632+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:51:51.634+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:51:51.633+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:51:52.543+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:51:52.554+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:51:52.554+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:51:52.569+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:51:52.569+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:51:52.595+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.968 seconds
+[2026-06-21T21:52:41.956+0300] {processor.py:161} INFO - Started process (PID=16672) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:52:41.958+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:52:41.961+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:52:41.960+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:52:42.853+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:52:42.865+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:52:42.865+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:52:42.881+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:52:42.881+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:52:42.909+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.969 seconds
+[2026-06-21T21:53:37.933+0300] {processor.py:161} INFO - Started process (PID=16762) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:53:37.934+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:53:37.936+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:53:37.935+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:53:38.783+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:53:38.795+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:53:38.795+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:53:38.811+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:53:38.810+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:53:38.841+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.915 seconds
+[2026-06-21T21:54:34.443+0300] {processor.py:161} INFO - Started process (PID=16864) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:54:34.445+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:54:34.449+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:54:34.448+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:54:35.324+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:54:35.336+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:54:35.335+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:54:35.350+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:54:35.350+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:54:35.375+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.945 seconds
+[2026-06-21T21:55:31.678+0300] {processor.py:161} INFO - Started process (PID=16948) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:55:31.679+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:55:31.681+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:55:31.680+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:55:32.576+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:55:32.587+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:55:32.586+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:55:32.601+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:55:32.601+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:55:32.629+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.956 seconds
+[2026-06-21T21:56:23.242+0300] {processor.py:161} INFO - Started process (PID=17038) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:56:23.243+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:56:23.245+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:56:23.244+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:56:24.415+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:56:24.427+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:56:24.427+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:56:24.442+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:56:24.442+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:56:24.469+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.231 seconds
+[2026-06-21T21:57:15.230+0300] {processor.py:161} INFO - Started process (PID=17131) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:57:15.231+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:57:15.233+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:57:15.233+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:57:16.159+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:57:16.172+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:57:16.172+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:57:16.187+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:57:16.186+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:57:16.212+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.988 seconds
+[2026-06-21T21:58:10.273+0300] {processor.py:161} INFO - Started process (PID=17223) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:58:10.275+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:58:10.278+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:58:10.277+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:58:11.128+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:58:11.140+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:58:11.139+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:58:11.156+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:58:11.156+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:58:11.182+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.917 seconds
+[2026-06-21T21:59:06.094+0300] {processor.py:161} INFO - Started process (PID=17302) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:59:06.095+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T21:59:06.098+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:59:06.097+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:59:07.011+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T21:59:07.024+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:59:07.023+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T21:59:07.039+0300] {logging_mixin.py:188} INFO - [2026-06-21T21:59:07.038+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T21:59:07.068+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.986 seconds
+[2026-06-21T22:00:02.890+0300] {processor.py:161} INFO - Started process (PID=17397) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:00:02.892+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:00:02.895+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:00:02.894+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:00:03.771+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:00:03.783+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:00:03.783+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:00:03.798+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:00:03.798+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:00:03.825+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.945 seconds
+[2026-06-21T22:00:59.850+0300] {processor.py:161} INFO - Started process (PID=17491) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:00:59.851+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:00:59.853+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:00:59.852+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:01:00.712+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:01:00.723+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:01:00.723+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:01:00.738+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:01:00.738+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:01:00.763+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.918 seconds
+[2026-06-21T22:01:58.897+0300] {processor.py:161} INFO - Started process (PID=17584) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:01:58.897+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:01:58.899+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:01:58.899+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:01:59.736+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:01:59.748+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:01:59.748+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:01:59.764+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:01:59.764+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:01:59.794+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.905 seconds
+[2026-06-21T22:02:55.355+0300] {processor.py:161} INFO - Started process (PID=17730) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:02:55.356+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:02:55.358+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:02:55.357+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:02:56.235+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:02:56.247+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:02:56.247+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:02:56.262+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:02:56.261+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:02:56.335+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.985 seconds
+[2026-06-21T22:03:52.219+0300] {processor.py:161} INFO - Started process (PID=17833) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:03:52.220+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:03:52.223+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:03:52.222+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:03:53.102+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:03:53.116+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:03:53.116+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:03:53.131+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:03:53.131+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:03:53.156+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.948 seconds
+[2026-06-21T22:04:44.465+0300] {processor.py:161} INFO - Started process (PID=17909) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:04:44.466+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:04:44.468+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:04:44.467+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:04:45.392+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:04:45.404+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:04:45.403+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:04:45.418+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:04:45.418+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:04:45.511+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.054 seconds
+[2026-06-21T22:05:40.938+0300] {processor.py:161} INFO - Started process (PID=18005) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:05:40.939+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:05:40.942+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:05:40.941+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:05:41.854+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:05:41.866+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:05:41.866+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:05:41.881+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:05:41.880+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:05:41.906+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.979 seconds
+[2026-06-21T22:06:39.383+0300] {processor.py:161} INFO - Started process (PID=18095) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:06:39.384+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:06:39.386+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:06:39.385+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:06:40.226+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:06:40.238+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:06:40.237+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:06:40.317+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:06:40.317+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:06:40.344+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.966 seconds
+[2026-06-21T22:07:36.867+0300] {processor.py:161} INFO - Started process (PID=18186) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:07:36.868+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:07:36.871+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:07:36.870+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:07:37.777+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:07:37.788+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:07:37.788+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:07:37.804+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:07:37.804+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:07:37.832+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.980 seconds
+[2026-06-21T22:08:35.280+0300] {processor.py:161} INFO - Started process (PID=18269) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:08:35.281+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:08:35.282+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:08:35.282+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:08:36.232+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:08:36.244+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:08:36.244+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:08:36.258+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:08:36.258+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:08:36.326+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.051 seconds
+[2026-06-21T22:09:30.872+0300] {processor.py:161} INFO - Started process (PID=18497) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:09:30.873+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:09:30.874+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:09:30.874+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:09:31.760+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:09:31.772+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:09:31.771+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:09:31.856+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:09:31.856+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:09:31.889+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.024 seconds
+[2026-06-21T22:10:02.840+0300] {processor.py:161} INFO - Started process (PID=18568) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:10:02.842+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:10:02.848+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:10:02.846+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:10:04.333+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:10:04.349+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:10:04.348+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:10:04.367+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:10:04.366+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:10:04.398+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.577 seconds
+[2026-06-21T22:10:41.344+0300] {processor.py:161} INFO - Started process (PID=18710) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:10:41.347+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:10:41.351+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:10:41.350+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:10:42.446+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:10:42.462+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:10:42.462+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:10:42.482+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:10:42.482+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:10:42.513+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.184 seconds
+[2026-06-21T22:11:13.372+0300] {processor.py:161} INFO - Started process (PID=18803) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:11:13.373+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:11:13.375+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:11:13.374+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:11:14.459+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:11:14.478+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:11:14.477+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:11:14.498+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:11:14.498+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:11:14.533+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.167 seconds
+[2026-06-21T22:12:05.737+0300] {processor.py:161} INFO - Started process (PID=18889) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:12:05.739+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:12:05.742+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:12:05.741+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:12:06.564+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:12:06.575+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:12:06.574+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:12:06.591+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:12:06.590+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:12:06.616+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.895 seconds
+[2026-06-21T22:12:59.371+0300] {processor.py:161} INFO - Started process (PID=18981) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:12:59.372+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:12:59.374+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:12:59.374+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:13:00.398+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:13:00.411+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:13:00.411+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:13:00.428+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:13:00.428+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:13:00.458+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.095 seconds
+[2026-06-21T22:13:18.474+0300] {processor.py:161} INFO - Started process (PID=19026) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:13:18.476+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:13:18.478+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:13:18.477+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:13:21.072+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:13:21.118+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:13:21.117+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:13:21.153+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:13:21.152+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:13:21.192+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 2.723 seconds
+[2026-06-21T22:14:20.584+0300] {processor.py:161} INFO - Started process (PID=19178) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:14:20.585+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:14:20.586+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:14:20.586+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:14:21.878+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:14:21.891+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:14:21.891+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:14:21.908+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:14:21.908+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:14:21.941+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.362 seconds
+[2026-06-21T22:15:18.133+0300] {processor.py:161} INFO - Started process (PID=19273) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:15:18.134+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:15:18.136+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:15:18.136+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:15:19.205+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:15:19.222+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:15:19.221+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:15:19.251+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:15:19.250+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:15:19.288+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.162 seconds
+[2026-06-21T22:16:10.440+0300] {processor.py:161} INFO - Started process (PID=19634) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:16:10.442+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:16:10.444+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:16:10.444+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:16:11.428+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:16:11.442+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:16:11.441+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:16:11.461+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:16:11.460+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:16:11.487+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.056 seconds
+[2026-06-21T22:17:06.823+0300] {processor.py:161} INFO - Started process (PID=19766) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:17:06.824+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:17:06.825+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:17:06.825+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:17:07.902+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:17:07.914+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:17:07.914+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:17:07.929+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:17:07.928+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:17:07.955+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.137 seconds
+[2026-06-21T22:18:06.818+0300] {processor.py:161} INFO - Started process (PID=19926) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:18:06.827+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:18:06.833+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:18:06.828+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:18:07.979+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:18:07.991+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:18:07.991+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:18:08.006+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:18:08.006+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:18:08.035+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.241 seconds
+[2026-06-21T22:19:01.741+0300] {processor.py:161} INFO - Started process (PID=20016) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:19:01.742+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:19:01.744+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:19:01.743+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:19:02.755+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:19:02.768+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:19:02.767+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:19:02.783+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:19:02.783+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:19:02.880+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.144 seconds
+[2026-06-21T22:20:03.008+0300] {processor.py:161} INFO - Started process (PID=20131) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:20:03.009+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:20:03.012+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:20:03.011+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:20:03.918+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:20:03.930+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:20:03.930+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:20:03.946+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:20:03.946+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:20:03.971+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.971 seconds
+[2026-06-21T22:20:39.223+0300] {processor.py:161} INFO - Started process (PID=20193) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:20:39.224+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:20:39.226+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:20:39.225+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:20:40.092+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:20:40.117+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:20:40.117+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:20:40.134+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:20:40.133+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:20:40.158+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.939 seconds
+[2026-06-21T22:21:40.418+0300] {processor.py:161} INFO - Started process (PID=20293) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:21:40.419+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:21:40.422+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:21:40.421+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:21:41.544+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:21:41.556+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:21:41.556+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:21:41.571+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:21:41.570+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:21:41.596+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.185 seconds
+[2026-06-21T22:22:12.139+0300] {processor.py:161} INFO - Started process (PID=20351) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:22:12.140+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:22:12.142+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:22:12.142+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:22:13.493+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:22:13.505+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:22:13.504+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:22:13.519+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:22:13.519+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:22:13.545+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.415 seconds
+[2026-06-21T22:22:49.762+0300] {processor.py:161} INFO - Started process (PID=20417) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:22:49.763+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:22:49.765+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:22:49.764+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:22:50.829+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:22:50.853+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:22:50.853+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:22:50.870+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:22:50.869+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:22:50.896+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.140 seconds
+[2026-06-21T22:23:51.648+0300] {processor.py:161} INFO - Started process (PID=20522) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:23:51.649+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:23:51.651+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:23:51.651+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:23:52.610+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:23:52.623+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:23:52.623+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:23:52.637+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:23:52.637+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:23:52.662+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.020 seconds
+[2026-06-21T22:36:56.073+0300] {processor.py:161} INFO - Started process (PID=21318) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:36:56.074+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:36:56.075+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:36:56.075+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:36:57.105+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:36:57.141+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:36:57.140+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:36:57.161+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:36:57.160+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:36:57.199+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.132 seconds
+[2026-06-21T22:39:33.789+0300] {processor.py:161} INFO - Started process (PID=21622) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:39:33.789+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:39:33.791+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:39:33.791+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:39:34.695+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:39:34.720+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:39:34.719+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:39:34.736+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:39:34.736+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:39:34.762+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.979 seconds
+[2026-06-21T22:47:39.947+0300] {processor.py:161} INFO - Started process (PID=22084) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:47:39.948+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:47:39.950+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:47:39.949+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:47:40.857+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:47:40.885+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:47:40.884+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:47:40.896+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:47:40.895+0300] {dag.py:3118} INFO - Creating ORM DAG for anomx_pipeline
+[2026-06-21T22:47:40.905+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:47:40.905+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-20 00:00:00+00:00, run_after=2026-06-21 00:00:00+00:00
+[2026-06-21T22:47:40.936+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.995 seconds
+[2026-06-21T22:48:39.844+0300] {processor.py:161} INFO - Started process (PID=22183) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:48:39.845+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:48:39.848+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:48:39.847+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:48:40.842+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:48:40.857+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:48:40.856+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:48:40.874+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:48:40.873+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:48:40.906+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.073 seconds
+[2026-06-21T22:49:36.601+0300] {processor.py:161} INFO - Started process (PID=22275) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:49:36.603+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:49:36.606+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:49:36.605+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:49:37.532+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:49:37.546+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:49:37.545+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:49:37.562+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:49:37.562+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:49:37.590+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 0.998 seconds
+[2026-06-21T22:50:32.882+0300] {processor.py:161} INFO - Started process (PID=22423) to work on /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:50:32.883+0300] {processor.py:830} INFO - Processing file /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py for tasks to queue
+[2026-06-21T22:50:32.885+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:50:32.884+0300] {dagbag.py:540} INFO - Filling up the DagBag from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:50:33.842+0300] {processor.py:840} INFO - DAG(s) 'anomx_pipeline' retrieved from /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py
+[2026-06-21T22:50:33.856+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:50:33.855+0300] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-21T22:50:33.874+0300] {logging_mixin.py:188} INFO - [2026-06-21T22:50:33.874+0300] {dag.py:3954} INFO - Setting next_dagrun for anomx_pipeline to 2026-06-21 00:00:00+00:00, run_after=2026-06-22 00:00:00+00:00
+[2026-06-21T22:50:33.905+0300] {processor.py:183} INFO - Processing /media/data/omar/programming course/DEPI/DEPI project/anomx/airflow/dags/anomx_pipeline.py took 1.030 seconds

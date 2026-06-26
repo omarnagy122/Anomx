@@ -1,16 +1,16 @@
-from __future__ import annotations
+from **future** import annotations
 
 import os
 from pathlib import Path
 
-BASE_DIR = Path(os.getenv("ANOMX_BASE_DIR", Path(__file__).resolve().parent)).resolve()
+BASE_DIR = Path(os.getenv("ANOMX_BASE_DIR", Path(**file**).resolve().parent)).resolve()
 DATA_DIR = Path(os.getenv("ANOMX_DATA_DIR", BASE_DIR / "data" / "raw" / "CMAPSSData")).resolve()
 
 SENSOR_COLUMNS = [
-    "engine_id", "time_in_cycles",
-    "op_setting_1", "op_setting_2", "op_setting_3",
-    "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10",
-    "s11", "s12", "s13", "s14", "s15", "s16", "s17", "s18", "s19", "s20", "s21",
+"engine_id", "time_in_cycles",
+"op_setting_1", "op_setting_2", "op_setting_3",
+"s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10",
+"s11", "s12", "s13", "s14", "s15", "s16", "s17", "s18", "s19", "s20", "s21",
 ]
 
 DATASETS = ("FD001", "FD002", "FD003", "FD004")
@@ -20,6 +20,7 @@ KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "sensor-data")
 KAFKA_GROUP_ID = os.getenv("KAFKA_GROUP_ID", "anomx-raw-consumer")
 
 # MQTT broker used for optional machine/IoT simulation before Kafka.
+
 MQTT_HOST = os.getenv("MQTT_HOST", "localhost")
 MQTT_PORT = int(os.getenv("MQTT_PORT", "1883"))
 MQTT_TOPIC = os.getenv("MQTT_TOPIC", "sensors/cmapss")
@@ -46,13 +47,12 @@ ALERT_CRITICAL_THRESHOLD = float(os.getenv("ALERT_CRITICAL_THRESHOLD", "90"))
 USELESS_SENSOR_COLUMNS = ["s1", "s5", "s6", "s10", "s16", "s18", "s19"]
 FEATURE_SENSOR_COLUMNS = ["s2", "s3", "s4", "s7", "s11", "s12", "s15", "s20", "s21"]
 
-
 def dataset_path(dataset: str = "FD001") -> Path:
-    dataset = dataset.upper()
-    override = os.getenv(f"ANOMX_{dataset}_PATH")
-    if override:
-        return Path(override).resolve()
-    generic_override = os.getenv("ANOMX_DATASET_PATH")
-    if generic_override:
-        return Path(generic_override).resolve()
-    return (DATA_DIR / f"train_{dataset}.txt").resolve()
+dataset = dataset.upper()
+override = os.getenv(f"ANOMX_{dataset}*PATH")
+if override:
+return Path(override).resolve()
+generic_override = os.getenv("ANOMX_DATASET_PATH")
+if generic_override:
+return Path(generic_override).resolve()
+return (DATA_DIR / f"train*{dataset}.txt").resolve()

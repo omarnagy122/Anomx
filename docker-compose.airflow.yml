@@ -1,0 +1,76 @@
+x-airflow-common: &airflow-common
+  build:
+    context: ./airflow
+    dockerfile: Dockerfile
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "False"
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: "5432"
+    POSTGRES_DB: anomx_db
+    POSTGRES_USER: anomx
+    POSTGRES_PASSWORD: anomx123
+    PREDICTION_WINDOW_CYCLES: "50"
+    ALERT_HIGH_THRESHOLD: "70"
+    ALERT_CRITICAL_THRESHOLD: "90"
+    PYTHONUNBUFFERED: "1"
+  volumes:
+    - ./airflow/dags:/opt/airflow/dags
+    - ./airflow/logs:/opt/airflow/logs
+    - ./prediction:/opt/airflow/prediction
+    - ./processing:/opt/airflow/processing
+    - ./db:/opt/airflow/db:ro
+    - ./config.py:/opt/airflow/config.py:ro
+  depends_on:
+    airflow-postgres:
+      condition: service_healthy
+  networks:
+    - anomx_default
+
+services:
+  airflow-postgres:
+    image: postgres:15
+    container_name: anomx-airflow-postgres
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5433:5432"
+    volumes:
+      - airflow_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow -d airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - anomx_default
+
+  airflow-init:
+    <<: *airflow-common
+    container_name: anomx-airflow-init
+    command: >
+      bash -c "airflow db migrate &&
+      airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@anomx.local || true"
+
+  airflow-webserver:
+    <<: *airflow-common
+    container_name: anomx-airflow-webserver
+    command: webserver
+    ports:
+      - "8080:8080"
+
+  airflow-scheduler:
+    <<: *airflow-common
+    container_name: anomx-airflow-scheduler
+    command: scheduler
+
+volumes:
+  airflow_pgdata:
+
+networks:
+  anomx_default:
+    external: true

@@ -1,6 +1,15 @@
-venv/
-data/
+.env
 __pycache__/
 *.pyc
-.env
-
+.pytest_cache/
+.venv/
+venv/
+airflow/logs/
+airflow/plugins/
+*.log
+*.zip
+# Keep bundled C-MAPSS files for this handoff ZIP, but do not commit large local data dumps later.
+# data/
+# Database backups are generated locally; keep only .gitkeep.
+db/backups/*.sql
+!db/backups/.gitkeep

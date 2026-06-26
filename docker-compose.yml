@@ -56,6 +56,16 @@ services:
     networks:
       - anomx_default
 
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: anomx-mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config:ro
+    networks:
+      - anomx_default
+
   consumer:
     image: anomx-incremental-fixed-app:latest
     build: .
@@ -82,6 +92,28 @@ services:
     networks:
       - anomx_default
 
+  mqtt-bridge:
+    image: anomx-incremental-fixed-app:latest
+    build: .
+    container_name: anomx-mqtt-bridge
+    depends_on:
+      kafka:
+        condition: service_healthy
+      mosquitto:
+        condition: service_started
+    environment:
+      MQTT_HOST: mosquitto
+      MQTT_PORT: "1883"
+      MQTT_TOPIC: sensors/cmapss
+      MQTT_QOS: "0"
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      KAFKA_TOPIC: sensor-data
+      PRODUCER_LOG_EVERY: "1000"
+    command: python ingestion/mqtt_bridge.py
+    restart: unless-stopped
+    networks:
+      - anomx_default
+
   producer:
     image: anomx-incremental-fixed-app:latest
     build: .
@@ -95,6 +127,27 @@ services:
       PRODUCER_LOG_EVERY: "1000"
       PRODUCER_SLEEP_SECONDS: "0"
     entrypoint: ["python", "ingestion/kafka_producer.py"]
+    command: ["FD001", "--start-row", "1", "--limit", "1000", "--sleep", "0"]
+    volumes:
+      - ./data:/app/data:ro
+    networks:
+      - anomx_default
+
+  mqtt-simulator:
+    image: anomx-incremental-fixed-app:latest
+    build: .
+    profiles: ["tools"]
+    depends_on:
+      mosquitto:
+        condition: service_started
+    environment:
+      MQTT_HOST: mosquitto
+      MQTT_PORT: "1883"
+      MQTT_TOPIC: sensors/cmapss
+      MQTT_QOS: "0"
+      PRODUCER_LOG_EVERY: "1000"
+      PRODUCER_SLEEP_SECONDS: "0"
+    entrypoint: ["python", "ingestion/mqtt_simulator.py"]
     command: ["FD001", "--start-row", "1", "--limit", "1000", "--sleep", "0"]
     volumes:
       - ./data:/app/data:ro
@@ -119,6 +172,40 @@ services:
       ALERT_CRITICAL_THRESHOLD: "90"
     entrypoint: ["python", "prediction/prediction_pipeline.py"]
     command: ["--run-type", "manual", "--window-cycles", "50"]
+    networks:
+      - anomx_default
+
+
+  machine-mqtt-test:
+    image: anomx-incremental-fixed-app:latest
+    build: .
+    profiles: ["tools"]
+    depends_on:
+      mosquitto:
+        condition: service_started
+    environment:
+      MQTT_HOST: mosquitto
+      MQTT_PORT: "1883"
+      MQTT_TOPIC: sensors/cmapss
+      MQTT_QOS: "0"
+      TEST_MACHINE_SOURCE: REAL_MACHINE_TEST
+      TEST_MACHINE_ENGINE_ID: "9001"
+    command: python scripts/send_mqtt_test_message.py
+    networks:
+      - anomx_default
+
+  db-backup:
+    image: postgres:15
+    profiles: ["tools"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: anomx123
+    volumes:
+      - ./db/backups:/backups
+    command: >-
+      sh -c 'pg_dump -h postgres -U anomx -d anomx_db --clean --if-exists --no-owner --no-privileges > /backups/anomx_backup_$$(date +%Y%m%d_%H%M%S).sql && ls -lh /backups'
     networks:
       - anomx_default
 

@@ -183,3 +183,96 @@ docker compose run --rm producer FD001 --start-row 1001 --limit 500 --sleep 0
 ```
 
 The producer reads C-MAPSS files from the host through the bind mount `./data:/app/data:ro`, so copy the data before running the producer. You do not need to rebuild just because you copied new dataset files.
+
+## Optional MQTT machine-simulation flow
+
+Omar Nagy's version introduced an MQTT layer. This merged version keeps the stable Kafka -> PostgreSQL raw-ingestion flow, and adds MQTT before Kafka as an optional machine/IoT protocol path:
+
+```text
+MQTT machine simulator -> Mosquitto broker -> MQTT bridge -> Kafka -> raw consumer -> PostgreSQL raw_sensor_data
+```
+
+The normal Kafka producer still works exactly as before. Use the MQTT flow only when you want to demonstrate a real machine-protocol layer.
+
+Start the stack:
+
+```powershell
+docker compose down -v
+docker compose up -d --build
+```
+
+Expected core services now include:
+
+```text
+postgres      healthy
+kafka         healthy
+consumer      up
+mosquitto     up
+mqtt-bridge   up
+zookeeper     up
+```
+
+Publish a simulated machine batch through MQTT:
+
+```powershell
+docker compose run --rm mqtt-simulator FD001 --start-row 1 --limit 1000 --sleep 0
+```
+
+Then confirm the rows arrived through the full MQTT -> Kafka -> PostgreSQL path:
+
+```powershell
+docker compose exec postgres psql -U anomx -d anomx_db -c "SELECT COUNT(*) FROM raw_sensor_data;"
+```
+
+Incremental MQTT simulation works the same way as the Kafka producer:
+
+```powershell
+docker compose run --rm mqtt-simulator FD001 --start-row 1001 --limit 500 --sleep 0
+```
+
+### MQTT files added/fixed
+
+```text
+ingestion/mqtt_simulator.py   # publishes C-MAPSS rows to MQTT
+ingestion/mqtt_bridge.py      # subscribes to MQTT and forwards valid JSON readings to Kafka
+mosquitto/config/mosquitto.conf
+```
+
+### Fixed MQTT issues from the Omar_Nagy version
+
+- Replaced old Paho MQTT callback style with the paho-mqtt 2.x callback API.
+- Added the missing `paho-mqtt` dependency to `requirements.txt`.
+- Removed hardcoded local paths from the Airflow/MQTT integration path.
+- Used the existing `dataset_path()` layout: `data/raw/CMAPSSData/train_FD001.txt`.
+- Added Docker services for Mosquitto, MQTT bridge, and MQTT simulator.
+- Kept the raw consumer as raw-only ingestion. No cleaning, Spark processing, or prediction runs inside the real-time consumer.
+
+## SQL backup/restore added from Omar's idea
+
+Omar's version had an `anomx_backup.sql` snapshot. This merged version keeps that idea safely as a repeatable backup/restore workflow for the current schema instead of auto-restoring the older dump.
+
+Create a backup:
+
+```powershell
+.\scripts\backup_postgres.ps1
+# or
+docker compose run --rm db-backup
+```
+
+Restore a selected backup:
+
+```powershell
+.\scripts\restore_postgres.ps1 -BackupFile .\db\backups\anomx_backup_YYYYMMDD_HHMMSS.sql
+```
+
+Full notes: `docs/SQL_BACKUP_AND_RESTORE.md`.
+
+## Real machine MQTT handoff
+
+The code now has a tested interface point for machine communication:
+
+```text
+machine / mqtt-simulator -> Mosquitto -> mqtt_bridge -> Kafka -> consumer -> PostgreSQL
+```
+
+For real physical machines, set the broker/topic/auth details in environment variables and align the payload with `docs/REAL_MACHINE_MQTT_INTEGRATION.md`.

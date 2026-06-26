@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS raw_sensor_data (
     id BIGSERIAL PRIMARY KEY,
-    source_file TEXT NOT NULL DEFAULT 'FD001',
+    source_file TEXT NOT NULL DEFAULT 'UNKNOWN',
     engine_id INTEGER NOT NULL,
     time_in_cycles INTEGER NOT NULL,
     op_setting_1 DOUBLE PRECISION,
@@ -31,9 +31,30 @@ CREATE TABLE IF NOT EXISTS raw_sensor_data (
     CONSTRAINT raw_sensor_data_unique_row UNIQUE (source_file, engine_id, time_in_cycles)
 );
 
+CREATE INDEX IF NOT EXISTS idx_raw_sensor_data_source_engine_cycle
+    ON raw_sensor_data (source_file, engine_id, time_in_cycles);
+
+CREATE INDEX IF NOT EXISTS idx_raw_sensor_data_inserted_at
+    ON raw_sensor_data (inserted_at);
+
+CREATE INDEX IF NOT EXISTS idx_raw_sensor_data_id
+    ON raw_sensor_data (id);
+
+CREATE TABLE IF NOT EXISTS processing_checkpoints (
+    pipeline_name TEXT PRIMARY KEY,
+    last_processed_raw_id BIGINT NOT NULL DEFAULT 0,
+    last_processed_inserted_at TIMESTAMPTZ,
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+INSERT INTO processing_checkpoints (pipeline_name, last_processed_raw_id)
+VALUES ('prediction_pipeline', 0)
+ON CONFLICT (pipeline_name) DO NOTHING;
+
 CREATE TABLE IF NOT EXISTS processed_sensor_data (
     id BIGSERIAL PRIMARY KEY,
-    source_file TEXT NOT NULL DEFAULT 'FD001',
+    raw_id BIGINT NOT NULL REFERENCES raw_sensor_data(id) ON DELETE CASCADE,
+    source_file TEXT NOT NULL DEFAULT 'UNKNOWN',
     engine_id INTEGER NOT NULL,
     time_in_cycles INTEGER NOT NULL,
     op_setting_1 DOUBLE PRECISION,
@@ -80,13 +101,63 @@ CREATE TABLE IF NOT EXISTS processed_sensor_data (
     rolling_avg_s21 DOUBLE PRECISION,
     rolling_std_s21 DOUBLE PRECISION,
     delta_s21 DOUBLE PRECISION,
-    rul INTEGER NOT NULL,
+    demo_rul INTEGER,
     processed_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    CONSTRAINT processed_sensor_data_unique_raw UNIQUE (raw_id),
     CONSTRAINT processed_sensor_data_unique_row UNIQUE (source_file, engine_id, time_in_cycles)
 );
 
-CREATE INDEX IF NOT EXISTS idx_raw_sensor_data_source_engine_cycle
-    ON raw_sensor_data (source_file, engine_id, time_in_cycles);
+CREATE TABLE IF NOT EXISTS prediction_runs (
+    run_id BIGSERIAL PRIMARY KEY,
+    run_type TEXT NOT NULL,
+    scheduled_time TIMESTAMPTZ,
+    started_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    finished_at TIMESTAMPTZ,
+    status TEXT NOT NULL DEFAULT 'RUNNING',
+    raw_rows_used INTEGER NOT NULL DEFAULT 0,
+    from_raw_id BIGINT,
+    to_raw_id BIGINT,
+    checkpoint_before BIGINT,
+    checkpoint_after BIGINT,
+    notes TEXT
+);
 
-CREATE INDEX IF NOT EXISTS idx_processed_sensor_data_source_engine_cycle
-    ON processed_sensor_data (source_file, engine_id, time_in_cycles);
+CREATE TABLE IF NOT EXISTS prediction_results (
+    id BIGSERIAL PRIMARY KEY,
+    run_id BIGINT NOT NULL REFERENCES prediction_runs(run_id) ON DELETE CASCADE,
+    raw_id BIGINT NOT NULL REFERENCES raw_sensor_data(id) ON DELETE CASCADE,
+    model_version TEXT NOT NULL DEFAULT 'demo-v1',
+    source_file TEXT NOT NULL DEFAULT 'UNKNOWN',
+    engine_id INTEGER NOT NULL,
+    prediction_time TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    latest_cycle INTEGER NOT NULL,
+    risk_score DOUBLE PRECISION NOT NULL,
+    predicted_rul DOUBLE PRECISION,
+    risk_level TEXT NOT NULL,
+    recommended_action TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    CONSTRAINT prediction_results_unique_raw_model UNIQUE (raw_id, model_version)
+);
+
+CREATE INDEX IF NOT EXISTS idx_prediction_results_run_id
+    ON prediction_results (run_id);
+
+CREATE INDEX IF NOT EXISTS idx_prediction_results_engine
+    ON prediction_results (source_file, engine_id, latest_cycle);
+
+CREATE TABLE IF NOT EXISTS alerts (
+    id BIGSERIAL PRIMARY KEY,
+    run_id BIGINT NOT NULL REFERENCES prediction_runs(run_id) ON DELETE CASCADE,
+    raw_id BIGINT NOT NULL REFERENCES raw_sensor_data(id) ON DELETE CASCADE,
+    model_version TEXT NOT NULL DEFAULT 'demo-v1',
+    source_file TEXT NOT NULL DEFAULT 'UNKNOWN',
+    engine_id INTEGER NOT NULL,
+    severity TEXT NOT NULL,
+    message TEXT NOT NULL,
+    is_resolved BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    CONSTRAINT alerts_unique_raw_model UNIQUE (raw_id, model_version)
+);
+
+CREATE INDEX IF NOT EXISTS idx_alerts_run_id
+    ON alerts (run_id);

@@ -19,6 +19,14 @@ KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
 KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "sensor-data")
 KAFKA_GROUP_ID = os.getenv("KAFKA_GROUP_ID", "anomx-raw-consumer")
 
+# MQTT broker used for optional machine/IoT simulation before Kafka.
+MQTT_HOST = os.getenv("MQTT_HOST", "localhost")
+MQTT_PORT = int(os.getenv("MQTT_PORT", "1883"))
+MQTT_TOPIC = os.getenv("MQTT_TOPIC", "sensors/cmapss")
+MQTT_CLIENT_ID = os.getenv("MQTT_CLIENT_ID", "anomx-client")
+MQTT_QOS = int(os.getenv("MQTT_QOS", "0"))
+MQTT_KEEPALIVE = int(os.getenv("MQTT_KEEPALIVE", "60"))
+
 POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
 POSTGRES_PORT = int(os.getenv("POSTGRES_PORT", "5432"))
 POSTGRES_DB = os.getenv("POSTGRES_DB", "anomx_db")

@@ -10,12 +10,6 @@ airflow/plugins/
 *.zip
 # Keep bundled C-MAPSS files for this handoff ZIP, but do not commit large local data dumps later.
 # data/
-
-airflow/logs/
-airflow/.env
-.env
-__pycache__/
-.pytest_cache/
-*.pyc
-data/raw/CMAPSSData/*
-!data/raw/CMAPSSData/.gitkeep
+# Database backups are generated locally; keep only .gitkeep.
+db/backups/*.sql
+!db/backups/.gitkeep

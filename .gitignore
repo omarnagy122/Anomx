@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Runtime logs
+logs/
+*.log
+orchestration/airflow/logs/*
+!orchestration/airflow/logs/.gitkeep
+orchestration/airflow/plugins/
+
+# Environment files / secrets
+.env
+.env.*
+!.env.example
+
+# Local archives
+*.zip
+*.tar
+*.tar.gz
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Database backups are generated locally; keep only the folder placeholder.
+infra/db/backups/*.sql
+!infra/db/backups/.gitkeep
+
+# Keep bundled C-MAPSS files for this handoff ZIP, but do not commit large local data dumps later.
+# data/
+
+# Exported training datasets are generated locally; keep only the folder placeholder.
+exports/processed/*.csv
+!exports/processed/.gitkeep

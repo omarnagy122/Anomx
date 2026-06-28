@@ -1,0 +1,35 @@
+.git
+.gitignore
+.dockerignore
+.env
+.env.*
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+logs/
+orchestration/airflow/logs/
+orchestration/airflow/plugins/
+*.log
+*.zip
+*.tar
+*.tar.gz
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+docs/reports/
+
+# Keep Docker images small. The producer reads C-MAPSS through a bind mount.
+data/raw/CMAPSSData/*
+!data/raw/CMAPSSData/.gitkeep
+
+# Do not send local DB backups into Docker builds.
+infra/db/backups/*.sql
+
+# Exported CSV files are local outputs, not Docker build inputs.
+exports/processed/*.csv

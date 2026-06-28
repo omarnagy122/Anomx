@@ -1,0 +1,258 @@
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: anomx-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    networks:
+      - anomx_default
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: anomx-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: INTERNAL://0.0.0.0:29092,EXTERNAL://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:29092,EXTERNAL://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-broker-api-versions --bootstrap-server localhost:29092 >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 30s
+    networks:
+      - anomx_default
+
+  postgres:
+    image: postgres:15
+    container_name: anomx-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: anomx
+      POSTGRES_PASSWORD: anomx123
+      POSTGRES_DB: anomx_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./infra/db/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U anomx -d anomx_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - anomx_default
+
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: anomx-mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./infra/mqtt/mosquitto/config:/mosquitto/config:ro
+    networks:
+      - anomx_default
+
+  consumer:
+    image: anomx-incremental-fixed-app:latest
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile
+    container_name: anomx-raw-consumer
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      KAFKA_TOPIC: sensor-data
+      KAFKA_GROUP_ID: anomx-raw-consumer
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: anomx_db
+      POSTGRES_USER: anomx
+      POSTGRES_PASSWORD: anomx123
+      POSTGRES_COMMIT_EVERY: "1"
+      CONSUMER_LOG_EVERY: "1000"
+      CONSUMER_TIMEOUT_MS: "0"
+      PYTHONPATH: /app/src
+    command: python src/ingestion/kafka_consumer.py
+    restart: unless-stopped
+    networks:
+      - anomx_default
+
+  mqtt-bridge:
+    image: anomx-incremental-fixed-app:latest
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile
+    container_name: anomx-mqtt-bridge
+    depends_on:
+      kafka:
+        condition: service_healthy
+      mosquitto:
+        condition: service_started
+    environment:
+      MQTT_HOST: mosquitto
+      MQTT_PORT: "1883"
+      MQTT_TOPIC: sensors/cmapss
+      MQTT_QOS: "0"
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      KAFKA_TOPIC: sensor-data
+      PRODUCER_LOG_EVERY: "1000"
+      PYTHONPATH: /app/src
+    command: python src/ingestion/mqtt_bridge.py
+    restart: unless-stopped
+    networks:
+      - anomx_default
+
+  producer:
+    image: anomx-incremental-fixed-app:latest
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile
+    profiles: ["tools"]
+    depends_on:
+      kafka:
+        condition: service_healthy
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      KAFKA_TOPIC: sensor-data
+      PRODUCER_LOG_EVERY: "1000"
+      PRODUCER_SLEEP_SECONDS: "0"
+      PYTHONPATH: /app/src
+    entrypoint: ["python", "src/ingestion/kafka_producer.py"]
+    command: ["FD001", "--start-row", "1", "--limit", "1000", "--sleep", "0"]
+    volumes:
+      - ./data:/app/data:ro
+    networks:
+      - anomx_default
+
+  mqtt-simulator:
+    image: anomx-incremental-fixed-app:latest
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile
+    profiles: ["tools"]
+    depends_on:
+      mosquitto:
+        condition: service_started
+    environment:
+      MQTT_HOST: mosquitto
+      MQTT_PORT: "1883"
+      MQTT_TOPIC: sensors/cmapss
+      MQTT_QOS: "0"
+      PRODUCER_LOG_EVERY: "1000"
+      PRODUCER_SLEEP_SECONDS: "0"
+      PYTHONPATH: /app/src
+    entrypoint: ["python", "src/ingestion/mqtt_simulator.py"]
+    command: ["FD001", "--start-row", "1", "--limit", "1000", "--sleep", "0"]
+    volumes:
+      - ./data:/app/data:ro
+    networks:
+      - anomx_default
+
+  prediction:
+    image: anomx-incremental-fixed-app:latest
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile
+    profiles: ["tools"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: anomx_db
+      POSTGRES_USER: anomx
+      POSTGRES_PASSWORD: anomx123
+      PREDICTION_WINDOW_CYCLES: "50"
+      ALERT_HIGH_THRESHOLD: "70"
+      ALERT_CRITICAL_THRESHOLD: "90"
+      PYTHONPATH: /app/src
+    entrypoint: ["python", "src/prediction/prediction_pipeline.py"]
+    command: ["--run-type", "manual", "--window-cycles", "50"]
+    networks:
+      - anomx_default
+
+  data-exporter:
+    image: anomx-incremental-fixed-app:latest
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile
+    profiles: ["tools"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: anomx_db
+      POSTGRES_USER: anomx
+      POSTGRES_PASSWORD: anomx123
+      PYTHONPATH: /app/src
+    entrypoint: ["python", "scripts/export_processed_data_to_csv.py"]
+    command: ["--output", "exports/processed/processed_sensor_data.csv"]
+    volumes:
+      - ./exports:/app/exports
+    networks:
+      - anomx_default
+
+
+  machine-mqtt-test:
+    image: anomx-incremental-fixed-app:latest
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile
+    profiles: ["tools"]
+    depends_on:
+      mosquitto:
+        condition: service_started
+    environment:
+      MQTT_HOST: mosquitto
+      MQTT_PORT: "1883"
+      MQTT_TOPIC: sensors/cmapss
+      MQTT_QOS: "0"
+      TEST_MACHINE_SOURCE: REAL_MACHINE_TEST
+      TEST_MACHINE_ENGINE_ID: "9001"
+      PYTHONPATH: /app/src
+    command: python scripts/send_mqtt_test_message.py
+    networks:
+      - anomx_default
+
+  db-backup:
+    image: postgres:15
+    profiles: ["tools"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: anomx123
+    volumes:
+      - ./infra/db/backups:/backups
+    command: >-
+      sh -c 'pg_dump -h postgres -U anomx -d anomx_db --clean --if-exists --no-owner --no-privileges > /backups/anomx_backup_$$(date +%Y%m%d_%H%M%S).sql && ls -lh /backups'
+    networks:
+      - anomx_default
+
+volumes:
+  pgdata:
+
+networks:
+  anomx_default:
+    name: anomx_default

@@ -14,23 +14,24 @@ DEFAULT_ARGS = {
 }
 
 with DAG(
-    dag_id="anomx_incremental_prediction_pipeline",
-    description="AnomX hourly incremental batch prediction from new raw sensor rows only",
+    dag_id="anomx_trained_model_prediction_pipeline",
+    description="AnomX scheduled trained-model prediction from processed_sensor_data",
     default_args=DEFAULT_ARGS,
     start_date=datetime(2026, 1, 1),
     schedule="@hourly",
     catchup=False,
     max_active_runs=1,
-    tags=["anomx", "prediction", "incremental", "hourly"],
+    tags=["anomx", "prediction", "trained-model", "schedule-settings"],
 ) as dag:
     start = EmptyOperator(task_id="start")
 
     run_prediction = BashOperator(
-        task_id="run_incremental_prediction_from_raw_data",
+        task_id="run_trained_model_prediction_from_processed_data",
         bash_command=(
             "cd /opt/airflow && "
             "python /opt/airflow/src/prediction/prediction_pipeline.py "
-            "--run-type hourly_incremental --window-cycles 50"
+            "--run-type airflow_scheduled_trained_model "
+            "--use-trained-model --respect-schedule"
         ),
     )
 

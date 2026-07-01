@@ -43,7 +43,9 @@ docker compose -f docker-compose.airflow.yml config
 
 ## 3. Start and stop the main stack
 
-### Clean start from scratch
+### Clean start from scratch - deletes PostgreSQL data
+
+Use this only when you intentionally want to erase the local PostgreSQL volume and rebuild the demo from zero.
 
 ```powershell
 docker compose down -v
@@ -64,6 +66,8 @@ docker compose down
 ```
 
 ### Stop and delete PostgreSQL volume
+
+This deletes the local database volume. Do not use it if you want to keep the already-ingested C-MAPSS rows and prediction results.
 
 ```powershell
 docker compose down -v
@@ -205,7 +209,44 @@ docker compose exec postgres psql -U anomx -d anomx_db -c "SELECT COUNT(*) FROM 
 docker compose exec postgres psql -U anomx -d anomx_db -c "SELECT id, source_file, engine_id, severity, message, created_at FROM alerts ORDER BY id DESC LIMIT 10;"
 ```
 
-## 7. Manual prediction commands
+
+## 7. Dashboard and trained-model prediction / Manual prediction commands
+
+### Open the dashboard
+
+```text
+http://localhost:8501
+```
+
+### Follow dashboard logs
+
+```powershell
+docker compose logs -f dashboard
+```
+
+### Run the real trained model from Docker
+
+This reads `processed_sensor_data`, loads `model/xgboost_predictive_model.pkl`, and writes to `prediction_results`, `alerts`, and `prediction_runs`.
+
+```powershell
+docker compose run --rm prediction
+```
+
+### Run the same trained model command explicitly
+
+```powershell
+docker compose run --rm prediction --run-type manual_trained_model --use-trained-model
+```
+
+### Verify dashboard integration outputs
+
+```powershell
+docker compose exec postgres psql -U anomx -d anomx_db -c "SELECT COUNT(*) FROM prediction_results;"
+docker compose exec postgres psql -U anomx -d anomx_db -c "SELECT COUNT(*) FROM alerts;"
+docker compose exec postgres psql -U anomx -d anomx_db -c "SELECT run_id, run_type, status, raw_rows_used, notes FROM prediction_runs ORDER BY run_id DESC LIMIT 5;"
+```
+
+## 8. Legacy incremental processing commands
 
 ### Run prediction manually
 
@@ -234,7 +275,7 @@ notes contains: No new raw rows to process
 docker compose run --rm prediction --run-type manual --window-cycles 100
 ```
 
-## 8. Export processed data for model training
+## 9. Export processed data for model training
 
 Use this when the processed PostgreSQL table is ready and the ML/model-training teammate needs a CSV file.
 
@@ -292,7 +333,7 @@ dir exports\processed
 python -c "import pandas as pd; df = pd.read_csv('exports/processed/processed_sensor_data.csv'); print(df.shape); print(df.head())"
 ```
 
-## 9. Airflow commands
+## 10. Airflow commands
 
 Start the main stack first, then start Airflow.
 
@@ -338,11 +379,11 @@ docker compose -f docker-compose.airflow.yml down
 URL: http://localhost:8080
 Username: admin
 Password: admin
-DAG: anomx_incremental_prediction_pipeline
-Schedule: hourly
+DAG: anomx_trained_model_prediction_pipeline
+Schedule: hourly; the DAG command reads schedule_settings before running the trained model
 ```
 
-## 10. Backup and restore commands
+## 11. Backup and restore commands
 
 ### Create backup using Docker Compose service
 
@@ -374,7 +415,7 @@ bash scripts/backup_postgres.sh
 bash scripts/restore_postgres.sh infra/db/backups/anomx_backup_YYYYMMDD_HHMMSS.sql
 ```
 
-## 11. Local tests and checks
+## 12. Local tests and checks
 
 ### Run complete local check suite
 
@@ -412,7 +453,7 @@ python scripts/quick_local_demo_without_kafka.py
 python -m compileall -q .
 ```
 
-## 12. Cleanup commands
+## 13. Cleanup commands
 
 ### Remove Python cache files
 
@@ -432,13 +473,13 @@ find . -type f -name "*.pyc" -delete
 ### Remove old project containers and image if needed
 
 ```powershell
-docker rm -f anomx-raw-consumer anomx-kafka anomx-postgres anomx-zookeeper anomx-mosquitto anomx-mqtt-bridge 2>$null
+docker rm -f anomx-dashboard anomx-raw-consumer anomx-kafka anomx-postgres anomx-zookeeper anomx-mosquitto anomx-mqtt-bridge 2>$null
 docker network rm anomx_default 2>$null
 docker volume rm anomx-two-flow_pgdata 2>$null
 docker image rm anomx-incremental-fixed-app:latest 2>$null
 ```
 
-## 13. Git commands
+## 14. Git commands
 
 ### Check current branch and changes
 
@@ -466,7 +507,7 @@ git push origin Mohamed_haythem
 git log --oneline --decorate -5
 ```
 
-## 14. Common troubleshooting
+## 15. Common troubleshooting
 
 ### Rebuild after dependency or Dockerfile changes
 
@@ -498,7 +539,9 @@ docker compose ps
 docker compose exec postgres pg_isready -U anomx -d anomx_db
 ```
 
-### Reset everything for a clean demo
+### Reset everything for a clean demo - deletes PostgreSQL data
+
+Use this only when you intentionally want to erase the local PostgreSQL volume.
 
 ```powershell
 docker compose down -v

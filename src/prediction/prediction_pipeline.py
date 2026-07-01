@@ -552,7 +552,27 @@ def main() -> None:
         default=PREDICTION_WINDOW_CYCLES,
         help="Number of old cycles per engine/source to read as context for rolling features.",
     )
+    parser.add_argument(
+        "--use-trained-model",
+        action="store_true",
+        help="Run the real trained XGBoost model from processed_sensor_data instead of the deterministic demo scorer.",
+    )
+    parser.add_argument(
+        "--respect-schedule",
+        action="store_true",
+        help="For Airflow runs: read schedule_settings and skip when the current HH:MM is not scheduled.",
+    )
     args = parser.parse_args()
+
+    if args.use_trained_model:
+        from prediction.trained_model import run_trained_model_prediction
+
+        run_trained_model_prediction(
+            run_type=args.run_type,
+            respect_schedule=args.respect_schedule,
+        )
+        return
+
     run_prediction_pipeline(run_type=args.run_type, window_cycles=args.window_cycles)
 
 

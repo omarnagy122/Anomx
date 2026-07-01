@@ -29,6 +29,7 @@ def test_schema_contains_required_tables_and_incremental_keys():
         "prediction_runs",
         "prediction_results",
         "alerts",
+        "schedule_settings",
     ]:
         assert f"create table if not exists {table}" in sql
     assert "unique (source_file, engine_id, time_in_cycles)" in sql
@@ -38,8 +39,9 @@ def test_schema_contains_required_tables_and_incremental_keys():
     assert "to_raw_id" in sql
 
 
-def test_airflow_runs_incremental_prediction_hourly():
+def test_airflow_runs_trained_prediction_hourly_and_respects_schedule_settings():
     dag_source = (PROJECT_ROOT / "orchestration" / "airflow" / "dags" / "anomx_prediction_dags.py").read_text(encoding="utf-8").lower()
     assert 'schedule="@hourly"' in dag_source
-    assert "hourly_incremental" in dag_source
-    assert "anomx_incremental_prediction_pipeline" in dag_source
+    assert "--use-trained-model" in dag_source
+    assert "--respect-schedule" in dag_source
+    assert "anomx_trained_model_prediction_pipeline" in dag_source

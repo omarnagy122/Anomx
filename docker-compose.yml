@@ -166,6 +166,38 @@ services:
     networks:
       - anomx_default
 
+  dashboard:
+    image: anomx-incremental-fixed-app:latest
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile
+    container_name: anomx-dashboard
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8501:8501"
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: anomx_db
+      POSTGRES_USER: anomx
+      POSTGRES_PASSWORD: anomx123
+      MODEL_PATH: /app/model/xgboost_predictive_model.pkl
+      TRAINED_MODEL_VERSION: xgboost-trained-v1
+      TRAINED_MODEL_HIGH_THRESHOLD: "0.80"
+      TRAINED_MODEL_MEDIUM_THRESHOLD: "0.50"
+      PYTHONPATH: /app/src
+    command: >-
+      streamlit run src/dashboard/app.py
+      --server.address=0.0.0.0
+      --server.port=8501
+      --browser.gatherUsageStats=false
+    restart: unless-stopped
+    networks:
+      - anomx_default
+
+
   prediction:
     image: anomx-incremental-fixed-app:latest
     build:
@@ -184,9 +216,13 @@ services:
       PREDICTION_WINDOW_CYCLES: "50"
       ALERT_HIGH_THRESHOLD: "70"
       ALERT_CRITICAL_THRESHOLD: "90"
+      MODEL_PATH: /app/model/xgboost_predictive_model.pkl
+      TRAINED_MODEL_VERSION: xgboost-trained-v1
+      TRAINED_MODEL_HIGH_THRESHOLD: "0.80"
+      TRAINED_MODEL_MEDIUM_THRESHOLD: "0.50"
       PYTHONPATH: /app/src
     entrypoint: ["python", "src/prediction/prediction_pipeline.py"]
-    command: ["--run-type", "manual", "--window-cycles", "50"]
+    command: ["--run-type", "manual_trained_model", "--use-trained-model"]
     networks:
       - anomx_default
 

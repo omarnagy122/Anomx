@@ -15,12 +15,17 @@ x-airflow-common: &airflow-common
     PREDICTION_WINDOW_CYCLES: "50"
     ALERT_HIGH_THRESHOLD: "70"
     ALERT_CRITICAL_THRESHOLD: "90"
+    MODEL_PATH: /opt/airflow/model/xgboost_predictive_model.pkl
+    TRAINED_MODEL_VERSION: xgboost-trained-v1
+    TRAINED_MODEL_HIGH_THRESHOLD: "0.80"
+    TRAINED_MODEL_MEDIUM_THRESHOLD: "0.50"
     PYTHONUNBUFFERED: "1"
     PYTHONPATH: /opt/airflow/src
   volumes:
     - ./orchestration/airflow/dags:/opt/airflow/dags
     - ./orchestration/airflow/logs:/opt/airflow/logs
     - ./src:/opt/airflow/src:ro
+    - ./model:/opt/airflow/model:ro
     - ./infra/db:/opt/airflow/infra/db:ro
   depends_on:
     airflow-postgres:

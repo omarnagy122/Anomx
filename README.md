@@ -63,6 +63,19 @@ The MQTT path is useful for demonstrating how a real factory machine protocol ca
 - Re-running prediction with no new data exits successfully without duplicating outputs.
 - SQL backups are generated locally and should not be committed.
 
+
+## Final dashboard integration
+
+The delivery flow is now connected end to end:
+
+```text
+Dashboard -> PostgreSQL Database -> trained XGBoost model -> prediction_results / alerts -> Dashboard Display
+```
+
+From the dashboard, press **Run Prediction** to load `model/xgboost_predictive_model.pkl`, read the latest engine rows from `processed_sensor_data`, save outputs into `prediction_results` and `alerts`, and refresh the displayed counts/tables.
+
+See `COMMANDS.md` and `docs/TRAINED_MODEL_DASHBOARD_INTEGRATION.md` for the exact run and verification commands.
+
 ## Documentation map
 
 - `COMMANDS.md` — all setup, Docker, Kafka, MQTT, PostgreSQL, Airflow, backup, restore, testing, and Git commands.
@@ -71,8 +84,9 @@ The MQTT path is useful for demonstrating how a real factory machine protocol ca
 - `docs/REAL_MACHINE_MQTT_INTEGRATION.md` — MQTT machine-protocol integration details.
 - `docs/SQL_BACKUP_AND_RESTORE.md` — PostgreSQL backup and restore workflow.
 - `docs/EXPORT_PROCESSED_DATA.md` — processed-data CSV export workflow for model training.
+- `docs/TRAINED_MODEL_DASHBOARD_INTEGRATION.md` — final dashboard-to-trained-model integration notes.
 - `docs/reports/` — merge and test reports.
 
 ## Project status
 
-This version is a clean handoff build focused on incremental raw ingestion, optional MQTT integration, prediction checkpoints, processed-data CSV export for model training, SQL backup/restore, and documentation clarity. The ML scoring is still a deterministic demo layer and can later be replaced by a trained model.
+This version is a final integration handoff build focused on incremental raw ingestion, optional MQTT integration, prediction checkpoints, trained XGBoost model inference from PostgreSQL, Streamlit dashboard execution/display, processed-data CSV export for model training, SQL backup/restore, and documentation clarity. The deterministic demo scorer remains available for compatibility, while the dashboard and tool prediction service run the trained model.

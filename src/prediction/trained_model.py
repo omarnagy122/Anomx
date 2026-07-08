@@ -30,7 +30,6 @@ REQUIRED_METADATA_COLUMNS = ["raw_id", "source_file", "engine_id", "time_in_cycl
 
 
 def load_trained_model(model_path: Path | str = MODEL_PATH) -> Any:
-    """Load the persisted XGBoost classifier from the project model directory."""
     import joblib
 
     resolved_path = Path(model_path).resolve()
@@ -43,7 +42,6 @@ def load_trained_model(model_path: Path | str = MODEL_PATH) -> Any:
 
 
 def extract_model_features(model: Any) -> list[str]:
-    """Return the exact feature order expected by the trained model."""
     if hasattr(model, "feature_names_in_"):
         return [str(feature) for feature in list(model.feature_names_in_)]
 
@@ -85,15 +83,15 @@ def validate_processed_features(feature_names: Iterable[str], available_columns:
 
 
 def load_latest_processed_rows(feature_names: list[str], limit: int | None = None) -> pd.DataFrame:
-    """Load the latest processed row per source/engine from PostgreSQL.
-
-    The trained classifier is run against the latest health state of every engine,
-    matching the dashboard use case rather than re-scoring every historical cycle.
-    """
     validate_processed_features(feature_names)
 
-    select_columns = [*REQUIRED_METADATA_COLUMNS, *feature_names]
-    quoted_columns = ", ".join(select_columns)
+    select_columns = [
+    *REQUIRED_METADATA_COLUMNS,
+    *[name for name in feature_names if name not in REQUIRED_METADATA_COLUMNS],
+]
+    inner_columns = ", ".join(f"p.{c}" for c in select_columns)
+    outer_columns = ", ".join(select_columns)
+
     limit_sql = ""
     params: tuple[Any, ...] = ()
     if limit and limit > 0:
@@ -102,14 +100,19 @@ def load_latest_processed_rows(feature_names: list[str], limit: int | None = Non
 
     query = f"""
         WITH latest AS (
-            SELECT DISTINCT ON (source_file, engine_id)
-                {quoted_columns}
-            FROM processed_sensor_data
-            ORDER BY source_file, engine_id, time_in_cycles DESC, raw_id DESC
+            SELECT DISTINCT ON (p.source_file, p.engine_id)
+                {inner_columns}
+            FROM processed_sensor_data p
+            ORDER BY
+                p.source_file,
+                p.engine_id,
+                p.time_in_cycles DESC,
+                p.raw_id DESC
         )
-        SELECT {quoted_columns}
+        SELECT {outer_columns}
         FROM latest
-        ORDER BY source_file, engine_id{limit_sql};
+        ORDER BY source_file, engine_id
+        {limit_sql};
     """
 
     with _connect_postgres() as conn:
@@ -286,7 +289,6 @@ def run_trained_model_prediction(
     model_path: Path | str = MODEL_PATH,
     model_version: str = TRAINED_MODEL_VERSION,
 ) -> dict[str, Any]:
-    """Run the real trained model from processed_sensor_data into existing output tables."""
     if respect_schedule and not is_scheduled_time():
         current = datetime.now().strftime("%H:%M")
         notes = f"Skipped trained model run; current time {current} is not in schedule_settings."
